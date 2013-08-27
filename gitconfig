@@ -1,0 +1,24 @@
+
+[core]
+excludesfile = /opt/boxen/config/git/gitignore
+
+[alias]
+lp = log -p
+co = checkout
+st = status
+ci = commit
+di = diff
+dc = diff --cached
+
+[hub]
+protocol = https
+
+[color]
+ui = true
+
+[user]
+name = Ryan Brooks
+email = ryanbrooksis@gmail.com
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
