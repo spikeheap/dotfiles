@@ -22,3 +22,5 @@ email = ryanbrooksis@gmail.com
 
 [credential]
 helper = /opt/boxen/bin/boxen-git-credential
+[push]
+	default = simple
