@@ -50,3 +50,6 @@ export AWS_ACCESS_KEY="AKIAIIL2VVZN5B4JGZ2Q"
 export AWS_SECRET_KEY="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"
 export ATLAS_HOME=/usr/local/Cellar/atlassian-plugin-sdk/4.1.7/libexec
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"

@@ -45,3 +45,6 @@ plugins=(git git-flow git-hubflow git-extras)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"
