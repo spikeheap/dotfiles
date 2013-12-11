@@ -46,4 +46,7 @@ plugins=(git git-flow git-extras brew textmate)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 unalias git
+[[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"
