@@ -46,8 +46,6 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export EC2_URL=https://eu-west-1.ec2.amazonaws.com
-export AWS_ACCESS_KEY="AKIAIIL2VVZN5B4JGZ2Q"
-export AWS_SECRET_KEY="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"
 export ATLAS_HOME=/usr/local/Cellar/atlassian-plugin-sdk/4.1.7/libexec
 
 
