@@ -1,0 +1,65 @@
+## Caskfile for Homebrew Cask
+## To run this file use:
+##  brew bundle Caskfile
+
+# Install cask
+install caskroom/cask/brew-cask
+
+# Productivity bits
+cask install alfred
+cask alfred link
+cask install slate
+cask install toggldesktop
+
+cask install daisydisk
+
+cask install dropbox
+cask install google-drive
+
+cask install evernote
+
+# Backup
+cask install backblaze
+
+# Network
+cask install little-snitch
+cask install cloak
+
+# Editing stuff
+cask install mou
+cask install sublime-text-3
+cask install atom
+cask install balsamiq-mockups
+cask install inkscape
+cask install intellij-idea
+cask install omnigraffle
+
+# Geo
+cask install qgis
+
+# Utilities
+cask install flux
+cask install qlstephen
+cask install cinch
+cask install sizeup
+
+cask install iterm2
+cask install licecap
+cask install skitch
+cask install sketchup
+cask install skype
+cask install vlc
+
+# Browsers
+cask install firefox
+cask install google-chrome
+
+# Virtualization
+cask install vagrant
+cask install virtualbox
+cask install vmware-fusion
+
+# Fun
+cask install spotify
+cask install transmission
+cask install transmission-remote-gui

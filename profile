@@ -1,13 +1,7 @@
 # Profile for iMac/Macbook Air
 
-# Include Boxen goodness
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-
 # Set up the PATH
 #export PATH=~/bin:$PATH
-#export PATH=~/Dropbox/scripts:$PATH
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=~/.rbenv/shims:$PATH
 
 # Set the Git home
 export GITHOME=$(brew --prefix)
@@ -34,20 +28,6 @@ export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=192m"
 #export LC_ALL="en_GB.UTF-8"
 export HISTCONTROL=ignoredups:ignorespace
 
-# Add the log parser to the path for Perl5
-export PERL5LIB=~/projects/GDS-Green/log_parser/perl_modules/lib
-
-# Configure groovy
-export GROOVY_HOME=/usr/local/Cellar/groovy/2.0.5/libexec
-
 # Configure EC2 configuration for command line tools
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export PATH=$PATH:$JAVA_HOME/bin
-
-export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
-export EC2_URL=https://eu-west-1.ec2.amazonaws.com
-export ATLAS_HOME=/usr/local/Cellar/atlassian-plugin-sdk/4.1.7/libexec
-
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"
