@@ -14,13 +14,9 @@ export GITHOME=$(brew --prefix)
 export LSCOLORS=GxFxCxDxBxcgcdabagacad
 
 ## Git BASH completion
-#if [ -f `brew --prefix`/etc/bash_completion ]; then
-#    . `brew --prefix`/etc/bash_completion
-#fi
-## Add .bashrc from bin/ (this is on GitHub)
-#if [ -f ~/bin/.bashrc ]; then
-#  . ~/bin/.bashrc
-#fi
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
 
 # Miscellaneous settings for compilation and editing
 export EDITOR=vim

@@ -18,6 +18,9 @@ cask install google-drive
 
 cask install evernote
 
+# Security
+cask install gpgtools
+
 # Backup
 cask install backblaze
 
