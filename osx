@@ -172,6 +172,12 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide -bool true
 
 ###############################################################################
+# Kill gamed Game Center                                                      #
+###############################################################################
+
+defaults write /System/Library/LaunchAgents/com.apple.gamed disabled -bool true
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 

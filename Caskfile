@@ -5,6 +5,9 @@
 # Install cask
 install caskroom/cask/brew-cask
 
+# Grab beta versions
+tap caskroom/versions
+
 # Productivity bits
 cask install alfred
 cask alfred link
@@ -18,6 +21,9 @@ cask install google-drive
 
 cask install evernote
 
+# Hardware
+cask install wacom-tablet
+
 # Security
 cask install gpgtools
 
@@ -30,7 +36,7 @@ cask install cloak
 
 # Editing stuff
 cask install mou
-cask install sublime-text-3
+cask install sublime-text3
 cask install atom
 cask install balsamiq-mockups
 cask install inkscape
@@ -38,6 +44,7 @@ cask install intellij-idea
 cask install omnigraffle
 
 # Geo
+cask install gdal-framework matplotlib
 cask install qgis
 
 # Utilities
@@ -46,7 +53,7 @@ cask install qlstephen
 cask install cinch
 cask install sizeup
 
-cask install iterm2
+cask install iterm2-beta
 cask install licecap
 cask install skitch
 cask install sketchup
@@ -55,7 +62,9 @@ cask install vlc
 
 # Browsers
 cask install firefox
+#cask install firefox-aurora # failed with a SHA2 mismatch 2014-08-28
 cask install google-chrome
+cask install google-chrome-canary
 
 # Virtualization
 cask install vagrant
@@ -64,5 +73,6 @@ cask install vmware-fusion
 
 # Fun
 cask install spotify
+cask install instacast
 cask install transmission
 cask install transmission-remote-gui

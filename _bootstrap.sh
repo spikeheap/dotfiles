@@ -36,3 +36,6 @@ done < "$PWD/link-files"
 
 echo "========== configure preferences"
 ./osx
+
+echo "========== make bash nicer so I don't use zsh"
+git clone https://github.com/revans/bash-it.git ~/.bash_it

@@ -1,6 +1,8 @@
+bash_profile
 gitconfig
 gitignore
 gradle
+jekyllconfig
 profile
 zshenv
 zshrc

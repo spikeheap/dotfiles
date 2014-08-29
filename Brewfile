@@ -23,6 +23,10 @@ install git-flow
 install git-extras
 install hub
 
+# Ruby
+intsall ruby-build
+install rb-env
+install pow
 
 # Cloudy future
 install heroku
