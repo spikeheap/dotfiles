@@ -18,7 +18,7 @@ export GIT_HOSTING='git@github.com'
 
 # Set my editor and git editor
 export EDITOR="/usr/local/bin/subl"
-export GIT_EDITOR='/usr/local/bin/subl'
+export GIT_EDITOR='vim'
 
 # Set the path nginx
 export NGINX_PATH='/opt/nginx'
@@ -54,3 +54,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 # Install casks to /Applications 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Useful aliases
+alias pad="bundle exec padrino"
+alias prake="bundle exec padrino rake"

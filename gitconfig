@@ -1,6 +1,6 @@
 
 [core]
-	excludesfile = /opt/boxen/config/git/gitignore
+	excludesfile = /Users/rb/.gitignore_global
 
 [alias]
 lp = log -p
@@ -43,3 +43,6 @@ helper = /opt/boxen/bin/boxen-git-credential
 	prompt = false
 [merge]
 	tool = Kaleidoscope
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

@@ -17,6 +17,9 @@ install tmux
 install watch
 install wget
 
+# DB
+install mysql
+
 # Git
 install git
 install git-flow

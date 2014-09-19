@@ -42,6 +42,7 @@ cask install balsamiq-mockups
 cask install inkscape
 cask install intellij-idea
 cask install omnigraffle
+cask install sequel-pro
 
 # Geo
 cask install gdal-framework matplotlib
