@@ -70,6 +70,7 @@ cask install skitch
 cask install sketchup
 cask install skype
 cask install vlc
+cask install querious
 
 # Browsers
 cask install firefox
