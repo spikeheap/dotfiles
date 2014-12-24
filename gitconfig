@@ -9,21 +9,17 @@ st = status
 ci = commit
 di = diff
 dc = diff --cached
-
-[hub]
-protocol = https
+pr = pull-request
 
 [color]
 ui = true
 
 [user]
-	name = Ryan Brooks
+	name =  Ryan Brooks
 	email = ryanbrooksis@gmail.com
 
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential
 [push]
-	default = simple
+	default = current
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -46,3 +42,5 @@ helper = /opt/boxen/bin/boxen-git-credential
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[hub]
+	protocol = 

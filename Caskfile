@@ -20,6 +20,7 @@ cask install dropbox
 cask install google-drive
 
 cask install evernote
+cask install skim
 
 # Hardware
 cask install wacom-tablet
@@ -44,6 +45,14 @@ cask install intellij-idea
 cask install omnigraffle
 cask install sequel-pro
 
+# Development
+cask install beaker
+cask install ngrok
+
+# Languages
+cask install darteditor
+cask install rust
+
 # Geo
 cask install gdal-framework matplotlib
 cask install qgis
@@ -53,6 +62,7 @@ cask install flux
 cask install qlstephen
 cask install cinch
 cask install sizeup
+cask install transmit
 
 cask install iterm2-beta
 cask install licecap
@@ -71,9 +81,11 @@ cask install google-chrome-canary
 cask install vagrant
 cask install virtualbox
 cask install vmware-fusion
+cask install chefdk
 
 # Fun
 cask install spotify
 cask install instacast
 cask install transmission
 cask install transmission-remote-gui
+cask install xld

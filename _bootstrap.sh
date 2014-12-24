@@ -37,5 +37,11 @@ done < "$PWD/link-files"
 echo "========== configure preferences"
 ./osx
 
-echo "========== make bash nicer so I don't use zsh"
-git clone https://github.com/revans/bash-it.git ~/.bash_it
+#echo "========== make bash nicer so I don't use ZSH"
+#git clone https://github.com/revans/bash-it.git ~/.bash_it
+
+echo "========== and then give up and install ZSH anyway..."
+curl -L http://install.ohmyz.sh | sh
+cd ~/.oh-my-zsh/custom/plugins
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+cd -
