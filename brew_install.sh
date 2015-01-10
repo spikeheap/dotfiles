@@ -35,7 +35,7 @@ brew install mongo
 brew install git
 brew install git-flow
 brew install git-extras
-brew install hub
+brew install --HEAD hub
 
 # Node
 brew install node

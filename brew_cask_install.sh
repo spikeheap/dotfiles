@@ -4,6 +4,7 @@
 
 # Install brew cask
 brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
 
 # Grab beta versions
 brew tap brew caskroom/versions
@@ -40,6 +41,7 @@ brew cask install mou
 brew cask install sublime-text3
 brew cask install atom
 brew cask install balsamiq-mockups
+brew cask install xquartz
 brew cask install inkscape
 brew cask install intellij-idea
 brew cask install omnigraffle

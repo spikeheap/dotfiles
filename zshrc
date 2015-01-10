@@ -56,4 +56,4 @@ unalias git
 [[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"
 
 source /usr/local/share/zsh/site-functions/_aws
-
+#source /usr/local/share/zsh/site-functions/git-flow-completion.zsh
