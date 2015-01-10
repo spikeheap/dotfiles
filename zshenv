@@ -16,5 +16,4 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 alias pad="bundle exec padrino"
 alias prake="bundle exec padrino rake"
 
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvmexport PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

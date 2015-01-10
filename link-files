@@ -4,5 +4,6 @@ gitignore
 gradle
 jekyllconfig
 profile
+vimrc
 zshenv
 zshrc

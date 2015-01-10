@@ -3,7 +3,7 @@
 ##  brew bundle brew caskfile
 
 # Install brew cask
-brew install brew caskroom/brew cask/brew-brew cask
+brew install caskroom/cask/brew-cask
 
 # Grab beta versions
 brew tap brew caskroom/versions
@@ -64,7 +64,7 @@ brew cask install cinch
 brew cask install sizeup
 brew cask install transmit
 
-brew cask install iterm2-beta
+brew cask install iterm2
 brew cask install licecap
 brew cask install skitch
 brew cask install sketchup

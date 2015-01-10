@@ -42,7 +42,7 @@ brew install node
 
 # Ruby
 brew install ruby-build
-brew install rb-env
+brew install rbenv
 brew install pow
 
 # Python
