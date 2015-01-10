@@ -6,10 +6,10 @@ if ! hash brew 2>/dev/null; then
 fi
 
 echo "========== brew the world"
-brew bundle Brewfile
+source brew_install.sh
 
 echo "========== cask all the things"
-brew bundle Caskfile
+source brew_cask_install.sh
 
 echo "========== node global modules"
 npm install -g coffee-script
