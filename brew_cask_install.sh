@@ -9,6 +9,9 @@ brew tap caskroom/versions
 # Grab beta versions
 brew tap brew caskroom/versions
 
+# Dependencies
+brew cask install adobe-air
+
 # Productivity bits
 brew cask install alfred
 brew cask alfred link
@@ -23,6 +26,9 @@ brew cask install google-drive
 brew cask install evernote
 brew cask install skim
 
+brew cask install osxfuse
+brew cask install boot2docker
+
 # Hardware
 brew cask install wacom-tablet
 
@@ -35,6 +41,7 @@ brew cask install backblaze
 # Network
 brew cask install little-snitch
 brew cask install cloak
+brew cask install wireshark
 
 # Editing stuff
 brew cask install mou
@@ -46,20 +53,25 @@ brew cask install inkscape
 brew cask install intellij-idea
 brew cask install omnigraffle
 brew cask install sequel-pro
+brew cask install mactex
 
 # Development
 brew cask install beaker
 brew cask install ngrok
+brew cask install screenhero
+brew cask install sourcetree
 
 # Languages
 brew cask install darteditor
 brew cask install rust
+brew cask install scratch
 
 # Geo
 brew cask install gdal-framework matplotlib
 brew cask install qgis
 
 # Utilities
+brew cask install 1password
 brew cask install flux
 brew cask install qlstephen
 brew cask install cinch
@@ -71,6 +83,7 @@ brew cask install licecap
 brew cask install skitch
 brew cask install sketchup
 brew cask install skype
+brew cask install gitter
 brew cask install vlc
 brew cask install querious
 
@@ -92,3 +105,8 @@ brew cask install instacast
 brew cask install transmission
 brew cask install transmission-remote-gui
 brew cask install xld
+brew cask install little-snitch
+brew cask install java
+
+brew cask install kitematic
+

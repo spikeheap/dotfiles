@@ -24,6 +24,8 @@ brew install s3cmd
 brew install tmux
 brew install watch
 brew install wget
+brew install ctags
+brew install p7zip
 
 # DB
 brew install mysql
@@ -53,3 +55,6 @@ brew install heroku
 
 # Libs
 brew install zmq
+
+brew install docker
+brew install docker-compose

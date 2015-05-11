@@ -18,6 +18,13 @@ npm install -g karma
 npm install -g travis
 npm install -g yo
 
+echo "========== Java and Groovy"
+curl -s get.gvmtool.net | zsh
+source "/Users/rb/.gvm/bin/gvm-init.sh"
+gvm install groovy
+gvm install gradle
+
+
 echo "========== link files"
 while read name; do
     source="$PWD/$name"

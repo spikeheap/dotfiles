@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# Load RVM, if you are using it
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-
-# Add rvm gems and nginx to the path
-export PATH=$PATH:~/.gem/ruby/1.8/bin:/opt/nginx/sbin
-
 # Path to the bash it configuration
 export BASH_IT=$HOME/.bash_it
 
@@ -58,5 +52,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Useful aliases
 alias pad="bundle exec padrino"
 alias prake="bundle exec padrino rake"
+
+
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"
