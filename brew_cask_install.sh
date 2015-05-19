@@ -13,6 +13,7 @@ brew tap brew caskroom/versions
 brew cask install adobe-air
 
 # Productivity bits
+brew cask install libreoffice
 brew cask install alfred
 brew cask alfred link
 brew cask install slate
