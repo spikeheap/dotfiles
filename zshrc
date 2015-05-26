@@ -79,11 +79,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+### rbenv
+# use this until rbenv plugin is in better shape
+# see https://github.com/robbyrussell/oh-my-zsh/pull/1118
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - )"
+
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"
-
 #eval "$(hub alias -s)"
 
-alias usenode='brew unlink iojs && brew link node && echo Updating NPM && npm install -g npm@latest && echo Using Node.js'
-alias useio='brew unlink node && brew link --force iojs && echo Updating NPM && npm install -g npm@latest && echo Using io.js'
 

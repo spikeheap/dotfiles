@@ -3,8 +3,8 @@
 ##  brew bundle Brewfile
 
 # Bash
-brew install bash
-brew install bash-completion
+#brew install bash
+#brew install bash-completion
 
 # ZSH
 brew install zsh
@@ -13,16 +13,13 @@ brew install zsh-completions
 brew install zsh-syntax-highlighting
 
 # Basics
-brew install cowsay
 brew install freetype
 brew install gist
 brew install gpg2
 brew install mobile-shell
 brew install nmap
-brew install nodejs
 brew install s3cmd
 brew install tmux
-brew install watch
 brew install wget
 brew install ctags
 brew install p7zip
@@ -54,7 +51,7 @@ brew install python
 brew install heroku
 
 # Libs
-brew install zmq
+#brew install zmq
 
-brew install docker
-brew install docker-compose
+#brew install docker
+#brew install docker-compose

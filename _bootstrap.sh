@@ -11,9 +11,12 @@ source brew_install.sh
 echo "========== cask all the things"
 source brew_cask_install.sh
 
+echo "========== Ruby global modules"
+sudo gem install bundler
+sudo bundle install --system
+
 echo "========== node global modules"
-npm install -g coffee-script
-npm install -g grunt
+npm install -g grunt-cli
 npm install -g karma
 npm install -g travis
 npm install -g yo
