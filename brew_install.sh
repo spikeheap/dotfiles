@@ -12,6 +12,10 @@ brew install zsh-lovers
 brew install zsh-completions
 brew install zsh-syntax-highlighting
 
+# For building stuff
+brew install cmake
+
+
 # Basics
 brew install freetype
 brew install gist
@@ -23,6 +27,7 @@ brew install tmux
 brew install wget
 brew install ctags
 brew install p7zip
+brew install jq
 
 # DB
 brew install mysql

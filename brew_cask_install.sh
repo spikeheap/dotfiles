@@ -79,7 +79,7 @@ brew cask install vlc
 brew cask install querious
 
 # Browsers
-brew cask install firefox
+brew cask install --appdir="/Applications" firefox
 #brew cask install firefox-aurora # failed with a SHA2 mismatch 2014-08-28
 brew cask install google-chrome
 brew cask install google-chrome-canary

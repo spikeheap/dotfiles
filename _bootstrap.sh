@@ -17,6 +17,7 @@ sudo bundle install --system
 
 echo "========== node global modules"
 npm install -g grunt-cli
+npm install -g gulp
 npm install -g karma
 npm install -g travis
 npm install -g yo

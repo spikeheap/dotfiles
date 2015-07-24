@@ -91,4 +91,12 @@ eval "$(rbenv init - )"
 [[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"
 #eval "$(hub alias -s)"
 
+new-ruby-script()
+{
+    local url="https://raw.githubusercontent.com/pazdera/scriptster/master"
+    #curl "$url/examples/minimal-template.rb" >"$1"
+    curl "$url/examples/documented-template.rb" >"$1"
 
+    chmod +x "$1"
+    $EDITOR "$1"
+}
