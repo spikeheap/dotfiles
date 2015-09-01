@@ -36,7 +36,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Useful aliases
 alias pad="bundle exec padrino"
 alias prake="bundle exec padrino rake"
-alias usenode='brew unlink iojs && brew link node && echo Updating NPM && npm install -g npm@latest && echo Using Node.js'
-alias useio='brew unlink node && brew link --force iojs && echo Updating NPM && npm install -g npm@latest && echo Using io.js'
+alias gitup="TMP_INITIAL_BRANCH=`git rev-parse --abbrev-ref HEAD` && git co master && git pull && git co develop && git pull && git co ${TMP_INITIAL_BRANCH}"
 
 eval `/usr/libexec/path_helper -s`

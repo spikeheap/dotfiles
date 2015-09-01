@@ -22,6 +22,12 @@ npm install -g karma
 npm install -g travis
 npm install -g yo
 
+npm install -g ijavascript
+
+
+echo "========== node global modules"
+pip install jupyter
+
 echo "========== Java and Groovy"
 curl -s get.gvmtool.net | zsh
 source "/Users/rb/.gvm/bin/gvm-init.sh"

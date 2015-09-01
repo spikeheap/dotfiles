@@ -12,9 +12,12 @@ brew install zsh-lovers
 brew install zsh-completions
 brew install zsh-syntax-highlighting
 
+brew install the_silver_searcher
+
 # For building stuff
 brew install cmake
-
+brew install ant
+brew install autogen
 
 # Basics
 brew install freetype
@@ -28,6 +31,7 @@ brew install wget
 brew install ctags
 brew install p7zip
 brew install jq
+brew install zeromq
 
 # DB
 brew install mysql
