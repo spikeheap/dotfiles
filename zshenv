@@ -33,9 +33,15 @@ export TODO="t"
 # Install casks to /Applications 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+function gitup() {
+	TMP_INITIAL_BRANCH=`git rev-parse --abbrev-ref HEAD`
+	git co master && git pull
+	git co develop && git pull 
+	git co ${TMP_INITIAL_BRANCH}
+}
+
 # Useful aliases
 alias pad="bundle exec padrino"
 alias prake="bundle exec padrino rake"
-alias gitup="TMP_INITIAL_BRANCH=`git rev-parse --abbrev-ref HEAD` && git co master && git pull && git co develop && git pull && git co ${TMP_INITIAL_BRANCH}"
 
 eval `/usr/libexec/path_helper -s`
