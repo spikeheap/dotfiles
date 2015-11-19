@@ -85,11 +85,21 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # use this until rbenv plugin is in better shape
 # see https://github.com/robbyrussell/oh-my-zsh/pull/1118
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - )"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"
+[[ -s "/Users/rb/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/rb/.sdkman/bin/sdkman-init.sh"
 #eval "$(hub alias -s)"
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 new-ruby-script()
 {

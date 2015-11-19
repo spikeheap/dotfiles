@@ -20,6 +20,7 @@ brew install ant
 brew install autogen
 
 # Basics
+brew install automake
 brew install freetype
 brew install gist
 brew install gpg2
@@ -32,12 +33,26 @@ brew install ctags
 brew install p7zip
 brew install jq
 brew install zeromq
+brew install qt
 
 # DB
 brew install mysql
+ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+
 brew install postgresql
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
 brew install couchdb
+ln -sfv /usr/local/opt/couchdb/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.couchdb.plist
+
 brew install mongo
+ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+
+brew install redis
 
 # Git
 brew install git
@@ -47,11 +62,20 @@ brew install --HEAD hub
 
 # Node
 brew install node
+brew install nvm
+mkdir ~/.nvm
 
 # Ruby
 brew install ruby-build
 brew install rbenv
+rbenv install 2.2.3
+rbenv global 2.2.3
+
 brew install pow
+sudo pow --install-system
+pow --install-local
+sudo launchctl load -w /Library/LaunchDaemons/cx.pow.firewall.plist
+launchctl load -w ~/Library/LaunchAgents/cx.pow.powd.plist
 
 # Python
 brew install python

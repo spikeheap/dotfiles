@@ -12,6 +12,7 @@ export GIT_HOSTING='git@github.com'
 # Set my editor and git editor
 export EDITOR="/usr/local/bin/subl"
 export GIT_EDITOR='vim'
+export GIT_TEMPLATE_DIR=`/Users/rb/.rbenv/shims/overcommit --template-dir`
 
 function setjdk() {
   if [ $# -ne 0 ]; then
@@ -26,7 +27,7 @@ function setjdk() {
  function removeFromPath() {
   export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
  }
-setjdk 1.7
+#setjdk 1.8
 
 export TODO="t"
 
@@ -43,5 +44,7 @@ function gitup() {
 # Useful aliases
 alias pad="bundle exec padrino"
 alias prake="bundle exec padrino rake"
-
+alias brspec="bundle exec rspec"
+alias migrations="bundle exec rake ar:migrate && RACK_ENV=test bundle exec rake ar:reset"
+alias clean_test="RACK_ENV=test bundle exec padrino rake ar:reset"
 eval `/usr/libexec/path_helper -s`

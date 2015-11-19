@@ -1,4 +1,6 @@
 source 'http://rubygems.org'
 
 gem "bundler"
-gem "iruby"
+gem "powify"
+gem "overcommit"
+gem "foreman"

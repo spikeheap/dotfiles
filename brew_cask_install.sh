@@ -15,7 +15,6 @@ brew cask install adobe-air
 # Productivity bits
 brew cask install libreoffice
 brew cask install alfred
-brew cask alfred link
 #brew cask install toggldesktop
 
 brew cask install daisydisk
@@ -77,6 +76,8 @@ brew cask install skype
 brew cask install gitter
 brew cask install vlc
 brew cask install querious
+brew cask install postico
+brew cask install pgadmin3
 
 # Browsers
 brew cask install --appdir="/Applications" firefox

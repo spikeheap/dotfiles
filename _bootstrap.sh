@@ -13,7 +13,7 @@ source brew_cask_install.sh
 
 echo "========== Ruby global modules"
 sudo gem install bundler
-sudo bundle install --system
+bundle install --system
 
 echo "========== node global modules"
 npm install -g grunt-cli
@@ -30,10 +30,18 @@ pip install jupyter
 
 echo "========== Java and Groovy"
 curl -s get.gvmtool.net | zsh
-source "/Users/rb/.gvm/bin/gvm-init.sh"
-gvm install groovy
-gvm install gradle
+source "/Users/rb/.sdkman/bin/sdkman-init.sh"
+sdkman install groovy
+sdkman install gradle
 
+#echo "========== make bash nicer so I don't use ZSH"
+#git clone https://github.com/revans/bash-it.git ~/.bash_it
+
+echo "========== and then give up and install ZSH anyway..."
+curl -L http://install.ohmyz.sh | sh
+cd ~/.oh-my-zsh/custom/plugins
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+cd -
 
 echo "========== link files"
 while read name; do
@@ -54,17 +62,24 @@ done < "$PWD/link-files"
 echo "========== configure preferences"
 ./osx
 
-#echo "========== make bash nicer so I don't use ZSH"
-#git clone https://github.com/revans/bash-it.git ~/.bash_it
-
-echo "========== and then give up and install ZSH anyway..."
-curl -L http://install.ohmyz.sh | sh
-cd ~/.oh-my-zsh/custom/plugins
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-cd -
+echo "========== set up SSH"
+ssh-keygen -t rsa -b 4096 -C "ryan@ryanbrooks.co.uk"
+ssh-add ~/.ssh/id_rsa
 
 echo "========== Check out some useful repos"
 mkdir ~/src
 cd ~/src
 git clone git@github.com:spikeheap/spikeheap.github.io
 
+echo "========== Postinstall steps"
+mysql_secure_installation
+/opt/homebrew-cask/Caskroom/backblaze/latest/Backblaze Installer.app
+
+# Run this last because it reboots the system
+/opt/homebrew-cask/Caskroom/little-snitch/3.6/Little Snitch Installer.app
+
+echo "========== All done"
+echo <<EOT
+Now do this manually: 
+* Set iTerm to load the preferences from ~/dotfiles/iterm/
+EOT
