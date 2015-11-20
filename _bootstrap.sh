@@ -1,4 +1,5 @@
 sudo /usr/bin/xcodebuild -license
+xcode-select --install
 
 echo "========== install homebrew"
 if ! hash brew 2>/dev/null; then
