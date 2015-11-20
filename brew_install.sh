@@ -24,7 +24,7 @@ brew install automake
 brew install freetype
 brew install gist
 brew install gpg2
-brew install mobile-shell
+#brew install mobile-shell
 brew install nmap
 brew install s3cmd
 brew install tmux
@@ -44,13 +44,13 @@ brew install postgresql
 ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
-brew install couchdb
-ln -sfv /usr/local/opt/couchdb/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.couchdb.plist
+# brew install couchdb
+# ln -sfv /usr/local/opt/couchdb/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.couchdb.plist
 
-brew install mongo
-ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+# brew install mongo
+# ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 
 brew install redis
 
@@ -82,7 +82,7 @@ brew install python
 
 # Cloudy future
 brew install heroku
-brew install aws-elasticbeanstalk
+# brew install aws-elasticbeanstalk
 # Libs
 #brew install zmq
 

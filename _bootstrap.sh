@@ -83,4 +83,5 @@ echo "========== All done"
 echo <<EOT
 Now do this manually: 
 * Set iTerm to load the preferences from ~/dotfiles/iterm/
+* Set SizeUp to start at boot
 EOT
