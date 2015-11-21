@@ -44,6 +44,7 @@ brew cask install balsamiq-mockups
 #brew cask install intellij-idea
 brew cask install rubymine
 brew cask install omnigraffle
+brew cask install omnifocus
 #brew cask install mactex
 
 # Development
