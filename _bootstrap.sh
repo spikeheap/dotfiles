@@ -74,10 +74,10 @@ git clone git@github.com:spikeheap/spikeheap.github.io
 
 echo "========== Postinstall steps"
 mysql_secure_installation
-/opt/homebrew-cask/Caskroom/backblaze/latest/Backblaze Installer.app
+open "/opt/homebrew-cask/Caskroom/backblaze/latest/Backblaze Installer.app"
 
 # Run this last because it reboots the system
-/opt/homebrew-cask/Caskroom/little-snitch/3.6/Little Snitch Installer.app
+open "/opt/homebrew-cask/Caskroom/little-snitch/3.6.1/Little Snitch Installer.app"
 
 echo "========== All done"
 cat <<EOT
