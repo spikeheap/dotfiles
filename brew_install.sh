@@ -37,18 +37,22 @@ brew install qt
 
 # DB
 brew install mysql
+mkdir -p ~/Library/LaunchAgents/
 ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
 brew install postgresql
+mkdir -p ~/Library/LaunchAgents/
 ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
 # brew install couchdb
+# mkdir -p ~/Library/LaunchAgents/
 # ln -sfv /usr/local/opt/couchdb/*.plist ~/Library/LaunchAgents
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.couchdb.plist
 
 # brew install mongo
+# mkdir -p ~/Library/LaunchAgents/
 # ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 

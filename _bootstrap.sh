@@ -80,8 +80,10 @@ mysql_secure_installation
 /opt/homebrew-cask/Caskroom/little-snitch/3.6/Little Snitch Installer.app
 
 echo "========== All done"
-echo <<EOT
+cat <<EOT
+
 Now do this manually: 
 * Set iTerm to load the preferences from ~/dotfiles/iterm/
 * Set SizeUp to start at boot
+
 EOT

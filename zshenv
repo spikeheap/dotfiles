@@ -12,7 +12,7 @@ export GIT_HOSTING='git@github.com'
 # Set my editor and git editor
 export EDITOR="/usr/local/bin/subl"
 export GIT_EDITOR='vim'
-export GIT_TEMPLATE_DIR=`/Users/rb/.rbenv/shims/overcommit --template-dir`
+#export GIT_TEMPLATE_DIR=`/Users/rb/.rbenv/shims/overcommit --template-dir`
 
 function setjdk() {
   if [ $# -ne 0 ]; then
