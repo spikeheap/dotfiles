@@ -45,6 +45,7 @@ brew cask install balsamiq-mockups
 brew cask install rubymine
 brew cask install omnigraffle
 brew cask install omnifocus
+brew cask install omnioutliner
 #brew cask install mactex
 
 # Development
