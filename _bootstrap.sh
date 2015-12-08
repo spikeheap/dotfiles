@@ -86,8 +86,8 @@ Now do this manually:
 * Set up Alfred
 * Set iTerm to load the preferences from ~/dotfiles/iterm/
 * Set SizeUp to start at boot
-* Run: aws configure
 * Check Backblaze
 * Complete Little Snitch installation
-
+* Run flux 
+* Run: aws configure
 EOT
