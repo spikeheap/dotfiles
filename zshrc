@@ -48,8 +48,6 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 # User configuration
-
-export PATH="/Users/rb/.rbenv/shims:$HOME/.rbenv/shims:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -81,11 +79,7 @@ source $ZSH/oh-my-zsh.sh
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-### rbenv
-# use this until rbenv plugin is in better shape
-# see https://github.com/robbyrussell/oh-my-zsh/pull/1118
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/rb/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/rb/.sdkman/bin/sdkman-init.sh"
@@ -110,3 +104,7 @@ new-ruby-script()
     chmod +x "$1"
     $EDITOR "$1"
 }
+
+
+eval `/usr/libexec/path_helper -s`
+eval "$(rbenv init -)"

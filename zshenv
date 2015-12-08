@@ -1,10 +1,12 @@
-export PATH=/usr/local/share/npm/bin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH
+### rbenv
+# use this until rbenv plugin is in better shape
+# see https://github.com/robbyrussell/oh-my-zsh/pull/1118
+export PATH="$HOME/.rbenv/bin:$PATH"
 
-export DOCKER_HOST=tcp://192.168.99.100:2376 
-export DOCKER_CERT_PATH=/Users/rb/.docker/machine/machines/dev 
-export DOCKER_TLS_VERIFY=1
+
+#export PATH=/usr/local/share/npm/bin:$PATH
+#export PATH=/usr/local/bin:$PATH
+#export PATH
 
 # Your place for hosting Git repos. I use this for private repos.
 export GIT_HOSTING='git@github.com'
@@ -41,10 +43,11 @@ function gitup() {
 	git co ${TMP_INITIAL_BRANCH}
 }
 
+# eval "$(/usr/local/bin/docker-machine env default --shell=zsh)"
+
 # Useful aliases
 alias pad="bundle exec padrino"
 alias prake="bundle exec padrino rake"
 alias brspec="bundle exec rspec"
 alias migrations="bundle exec rake ar:migrate && RACK_ENV=test bundle exec rake ar:reset"
 alias clean_test="RACK_ENV=test bundle exec padrino rake ar:reset"
-eval `/usr/libexec/path_helper -s`

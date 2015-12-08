@@ -67,6 +67,11 @@ echo "========== set up SSH"
 ssh-keygen -t rsa -b 4096 -C "ryan@ryanbrooks.co.uk"
 ssh-add ~/.ssh/id_rsa
 
+for ssh_file in ~/Dropbox/ssh_config/*
+do
+    ln -s $ssh_file "$HOME/.ssh/"
+done
+
 echo "========== Check out some useful repos"
 mkdir ~/src
 cd ~/src

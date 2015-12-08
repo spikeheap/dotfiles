@@ -13,6 +13,7 @@ brew tap brew caskroom/versions
 brew cask install adobe-air
 
 # Productivity bits
+brew cask install flux
 brew cask install libreoffice
 brew cask install alfred
 #brew cask install toggldesktop
@@ -90,6 +91,7 @@ brew cask install google-chrome-canary
 
 # Virtualization
 #brew cask install boot2docker
+brew cask install dockertoolbox
 brew cask install kitematic
 brew cask install vagrant
 brew cask install virtualbox
@@ -101,5 +103,8 @@ brew cask install spotify
 brew cask install transmission
 #brew cask install transmission-remote-gui
 brew cask install xld
+brew cask install steam
 
+# Not so fun
+brew cask install ynab
 

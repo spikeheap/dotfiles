@@ -86,6 +86,7 @@ brew install python
 
 # Cloudy future
 brew install heroku
+brew install awscli
 # brew install aws-elasticbeanstalk
 # Libs
 #brew install zmq
