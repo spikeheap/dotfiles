@@ -7,7 +7,7 @@ brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
 # Grab beta versions
-brew tap brew caskroom/versions
+# brew tap brew caskroom/versions
 
 # Dependencies
 brew cask install adobe-air
@@ -58,7 +58,7 @@ brew cask install sourcetree
 # Languages
 brew cask install java
 #brew cask install darteditor
-brew cask install rust
+#brew cask install rust
 #brew cask install scratch
 
 # Geo
@@ -92,11 +92,11 @@ brew cask install google-chrome-canary
 # Virtualization
 #brew cask install boot2docker
 brew cask install dockertoolbox
-brew cask install kitematic
+#brew cask install kitematic
 brew cask install vagrant
 brew cask install virtualbox
 #brew cask install vmware-fusion
-brew cask install chefdk
+#brew cask install chefdk
 
 # Fun
 brew cask install spotify

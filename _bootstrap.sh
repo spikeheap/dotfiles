@@ -23,7 +23,7 @@ npm install -g karma
 npm install -g travis
 npm install -g yo
 
-npm install -g ijavascript
+# npm install -g ijavascript
 
 
 echo "========== node global modules"
@@ -31,9 +31,9 @@ pip install jupyter
 
 echo "========== Java and Groovy"
 curl -s get.gvmtool.net | zsh
-source "/Users/rb/.sdkman/bin/sdkman-init.sh"
-sdkman install groovy
-sdkman install gradle
+source "~/.sdkman/bin/sdkman-init.sh"
+sdk install groovy
+sdk install gradle
 
 #echo "========== make bash nicer so I don't use ZSH"
 #git clone https://github.com/revans/bash-it.git ~/.bash_it
@@ -48,12 +48,8 @@ echo "========== link files"
 while read name; do
     source="$PWD/$name"
     target="$HOME/.$name"
-
-    if [ -h $target ]; then
-        rm $target
-    elif [ -d $target ]; then
-        rm -rf $target
-    fi
+    
+    rm -rf $target
 
     ln -s "$source" "$target"
     echo "Linked $source to $target"
@@ -64,7 +60,7 @@ echo "========== configure preferences"
 ./osx
 
 echo "========== set up SSH"
-ssh-keygen -t rsa -b 4096 -C "ryan@ryanbrooks.co.uk"
+ssh-keygen -t rsa -b 4096 -C "ryan@ryanbrooks.co.uk" -f ~/.ssh/id_rsa
 ssh-add ~/.ssh/id_rsa
 
 for ssh_file in ~/Dropbox/ssh_config/*
@@ -78,7 +74,6 @@ cd ~/src
 git clone git@github.com:spikeheap/spikeheap.github.io
 
 echo "========== Postinstall steps"
-mysql_secure_installation
 open "/opt/homebrew-cask/Caskroom/backblaze/latest/Backblaze Installer.app"
 
 # Run this last because it reboots the system
@@ -88,7 +83,11 @@ echo "========== All done"
 cat <<EOT
 
 Now do this manually: 
+* Set up Alfred
 * Set iTerm to load the preferences from ~/dotfiles/iterm/
 * Set SizeUp to start at boot
+* Run: aws configure
+* Check Backblaze
+* Complete Little Snitch installation
 
 EOT
