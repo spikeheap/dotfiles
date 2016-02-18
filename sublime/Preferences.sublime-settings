@@ -1,4 +1,9 @@
 {
+	"color_scheme": "Packages/Color Scheme - Wallaby/Solarized (Light) (SL).tmTheme",
+	"font_options":
+	[
+		"gray_antialias"
+	],
 	"font_size": 15,
 	"ignored_packages":
 	[

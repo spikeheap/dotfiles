@@ -5,10 +5,29 @@
 	],
 	"installed_packages":
 	[
+		"API Blueprint",
+		"Case Conversion",
+		"Color Highlighter",
 		"CTags",
-		"Docker Based Build Systems",
-		"Dockerfile Syntax Highlighting",
+		"Cucumber",
+		"DocBlockr",
 		"EditorConfig",
-		"Github Tools"
+		"Gherkin (Cucumber) Formatter",
+		"Gist",
+		"Git",
+		"Github Tools",
+		"HTML5",
+		"Indent XML",
+		"JavaScript Snippets",
+		"LESS",
+		"Package Control",
+		"Ruby Slim",
+		"SCSS",
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-jshint",
+		"SublimeLinter-json",
+		"Wallaby",
+		"WordCount"
 	]
 }
