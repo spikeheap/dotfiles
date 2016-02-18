@@ -48,8 +48,6 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 # User configuration
-
-export PATH="/Users/rb/.rbenv/shims:$HOME/.rbenv/shims:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -81,15 +79,21 @@ source $ZSH/oh-my-zsh.sh
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-### rbenv
-# use this until rbenv plugin is in better shape
-# see https://github.com/robbyrussell/oh-my-zsh/pull/1118
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - )"
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"
+[[ -s "/Users/rb/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/rb/.sdkman/bin/sdkman-init.sh"
 #eval "$(hub alias -s)"
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh/site-functions/_aws
 
 new-ruby-script()
 {
@@ -102,3 +106,6 @@ new-ruby-script()
 }
 
 function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+
+eval `/usr/libexec/path_helper -s`
+eval "$(rbenv init -)"

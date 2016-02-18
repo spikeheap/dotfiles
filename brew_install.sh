@@ -20,10 +20,11 @@ brew install ant
 brew install autogen
 
 # Basics
+brew install automake
 brew install freetype
-brew install gist
+#brew install gist
 brew install gpg2
-brew install mobile-shell
+#brew install mobile-shell
 brew install nmap
 brew install s3cmd
 brew install tmux
@@ -35,10 +36,28 @@ brew install zeromq
 brew install qt
 
 # DB
-brew install mysql
-brew install postgresql
-brew install couchdb
-brew install mongo
+#brew install mysql
+#mkdir -p ~/Library/LaunchAgents/
+#ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+#launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+#mysql_secure_installation
+
+#brew install postgresql
+#mkdir -p ~/Library/LaunchAgents/
+#ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+#launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
+# brew install couchdb
+# mkdir -p ~/Library/LaunchAgents/
+# ln -sfv /usr/local/opt/couchdb/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.couchdb.plist
+
+# brew install mongo
+# mkdir -p ~/Library/LaunchAgents/
+# ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+
+#brew install redis
 
 # Git
 brew install git
@@ -48,11 +67,21 @@ brew install --HEAD hub
 
 # Node
 brew install node
+brew install nvm
+mkdir ~/.nvm
 
 # Ruby
 brew install ruby-build
 brew install rbenv
+rbenv install 2.2.3
+rbenv global 2.2.3
+rbenv rehash
+
 brew install pow
+sudo pow --install-system
+pow --install-local
+sudo launchctl load -w /Library/LaunchDaemons/cx.pow.firewall.plist
+launchctl load -w ~/Library/LaunchAgents/cx.pow.powd.plist
 
 # Python
 brew install python
@@ -61,9 +90,7 @@ brew install python
 brew install heroku
 brew install aws-elasticbeanstalk
 brew install duck
-
+brew install awscli
 # Libs
 #brew install zmq
 
-#brew install docker
-#brew install docker-compose

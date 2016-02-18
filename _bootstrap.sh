@@ -1,4 +1,5 @@
 sudo /usr/bin/xcodebuild -license
+xcode-select --install
 
 echo "========== install homebrew"
 if ! hash brew 2>/dev/null; then
@@ -13,7 +14,7 @@ source brew_cask_install.sh
 
 echo "========== Ruby global modules"
 sudo gem install bundler
-sudo bundle install --system
+bundle install --system
 
 echo "========== node global modules"
 npm install -g grunt-cli
@@ -22,7 +23,7 @@ npm install -g karma
 npm install -g travis
 npm install -g yo
 
-npm install -g ijavascript
+# npm install -g ijavascript
 
 
 echo "========== node global modules"
@@ -30,29 +31,9 @@ pip install jupyter
 
 echo "========== Java and Groovy"
 curl -s get.gvmtool.net | zsh
-source "/Users/rb/.gvm/bin/gvm-init.sh"
-gvm install groovy
-gvm install gradle
-
-
-echo "========== link files"
-while read name; do
-    source="$PWD/$name"
-    target="$HOME/.$name"
-
-    if [ -h $target ]; then
-        rm $target
-    elif [ -d $target ]; then
-        rm -rf $target
-    fi
-
-    ln -s "$source" "$target"
-    echo "Linked $source to $target"
-
-done < "$PWD/link-files"
-
-echo "========== configure preferences"
-./osx
+source "~/.sdkman/bin/sdkman-init.sh"
+sdk install groovy
+sdk install gradle
 
 #echo "========== make bash nicer so I don't use ZSH"
 #git clone https://github.com/revans/bash-it.git ~/.bash_it
@@ -63,8 +44,65 @@ cd ~/.oh-my-zsh/custom/plugins
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 cd -
 
+echo "========== link files"
+while read name; do
+    source="$PWD/$name"
+    target="$HOME/.$name"
+    
+    rm -rf $target
+
+    ln -s "$source" "$target"
+    echo "Linked $source to $target"
+
+done < "$PWD/link-files"
+
+SUBLIME_SETTINGS="$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings" 
+if [ -a "$SUBLIME_SETTINGS" ]; then
+	mv "$SUBLIME_SETTINGS" "$SUBLIME_SETTINGS.old"
+fi
+ln -s "$PWD/sublime/Preferences.sublime-settings" "$SUBLIME_SETTINGS"
+
+SUBLIME_PACKAGE_CONTROL_SETTINGS="$HOME/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+if [ -a "$SUBLIME_PACKAGE_CONTROL_SETTINGS" ]; then
+	mv "$SUBLIME_PACKAGE_CONTROL_SETTINGS" "$SUBLIME_PACKAGE_CONTROL_SETTINGS.old"
+fi
+ln -s "$PWD/sublime/Package Control.sublime-settings" "$SUBLIME_PACKAGE_CONTROL_SETTINGS"
+
+echo "========== configure preferences"
+./osx
+
+echo "========== set up SSH"
+ssh-keygen -t rsa -b 4096 -C "ryan@ryanbrooks.co.uk" -f ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa
+
+for ssh_file in ~/Dropbox/ssh_config/*
+do
+    ln -s $ssh_file "$HOME/.ssh/"
+done
+
 echo "========== Check out some useful repos"
 mkdir ~/src
 cd ~/src
 git clone git@github.com:spikeheap/spikeheap.github.io
 
+echo "========== Postinstall steps"
+open "/opt/homebrew-cask/Caskroom/backblaze/latest/Backblaze Installer.app"
+
+# Run this last because it reboots the system
+open "/opt/homebrew-cask/Caskroom/little-snitch/3.6.1/Little Snitch Installer.app"
+
+
+
+echo "========== All done"
+cat <<EOT
+
+Now do this manually: 
+* Set up Alfred
+* Set iTerm to load the preferences from ~/dotfiles/iterm/
+* Set SizeUp to start at boot
+* Check Backblaze
+* Complete Little Snitch installation
+* Run flux 
+* Run: aws configure
+* Add Slack accounts
+EOT
