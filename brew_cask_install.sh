@@ -41,6 +41,7 @@ brew cask install wireshark
 # Editing stuff
 brew cask install sublime-text3
 brew cask install atom
+brew cask install visual-studio-code
 brew cask install balsamiq-mockups
 #brew cask install intellij-idea
 brew cask install rubymine

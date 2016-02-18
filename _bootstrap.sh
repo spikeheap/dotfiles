@@ -56,6 +56,18 @@ while read name; do
 
 done < "$PWD/link-files"
 
+SUBLIME_SETTINGS="$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings" 
+if [ -a "$SUBLIME_SETTINGS" ]; then
+	mv "$SUBLIME_SETTINGS" "$SUBLIME_SETTINGS.old"
+fi
+ln -s "$PWD/sublime/Preferences.sublime-settings" "$SUBLIME_SETTINGS"
+
+SUBLIME_PACKAGE_CONTROL_SETTINGS="$HOME/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+if [ -a "$SUBLIME_PACKAGE_CONTROL_SETTINGS" ]; then
+	mv "$SUBLIME_PACKAGE_CONTROL_SETTINGS" "$SUBLIME_PACKAGE_CONTROL_SETTINGS.old"
+fi
+ln -s "$PWD/sublime/Package Control.sublime-settings" "$SUBLIME_PACKAGE_CONTROL_SETTINGS"
+
 echo "========== configure preferences"
 ./osx
 
@@ -79,6 +91,8 @@ open "/opt/homebrew-cask/Caskroom/backblaze/latest/Backblaze Installer.app"
 # Run this last because it reboots the system
 open "/opt/homebrew-cask/Caskroom/little-snitch/3.6.1/Little Snitch Installer.app"
 
+
+
 echo "========== All done"
 cat <<EOT
 
@@ -90,4 +104,5 @@ Now do this manually:
 * Complete Little Snitch installation
 * Run flux 
 * Run: aws configure
+* Add Slack accounts
 EOT
