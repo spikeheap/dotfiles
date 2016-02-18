@@ -32,6 +32,7 @@ brew install ctags
 brew install p7zip
 brew install jq
 brew install zeromq
+brew install qt
 
 # DB
 brew install mysql
@@ -59,6 +60,8 @@ brew install python
 # Cloudy future
 brew install heroku
 brew install aws-elasticbeanstalk
+brew install duck
+
 # Libs
 #brew install zmq
 

@@ -52,6 +52,11 @@ brew cask install ngrok
 brew cask install screenhero
 brew cask install sourcetree
 
+# DB
+brew cask install postico
+brew cask install pgadmin3
+brew cask install querious
+
 # Languages
 brew cask install java
 #brew cask install darteditor
@@ -76,7 +81,6 @@ brew cask install slack
 brew cask install skype
 brew cask install gitter
 brew cask install vlc
-brew cask install querious
 
 # Browsers
 brew cask install --appdir="/Applications" firefox
