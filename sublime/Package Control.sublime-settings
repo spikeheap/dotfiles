@@ -27,7 +27,6 @@
 		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-jshint",
 		"SublimeLinter-json",
-		"Wallaby",
 		"WordCount"
 	]
 }
