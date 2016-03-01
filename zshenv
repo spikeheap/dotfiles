@@ -51,6 +51,7 @@ function gitup() {
 alias pad="bundle exec padrino"
 alias prake="bundle exec padrino rake"
 alias brspec="bundle exec rspec"
+alias be="bundle exec"
 alias migrations="bundle exec rake ar:migrate && RACK_ENV=test bundle exec rake ar:reset"
 alias clean_test="RACK_ENV=test bundle exec padrino rake ar:reset"
 
