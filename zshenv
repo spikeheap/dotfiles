@@ -58,3 +58,5 @@ alias clean_test="RACK_ENV=test bundle exec padrino rake ar:reset"
 alias wakeimac="wakeonlan -i 46.227.149.240 -p 38755 38:c9:86:1b:dc:a1"
 eval `/usr/libexec/path_helper -s`
 
+MACHINE_NAME=default
+eval $(docker-machine env $MACHINE_NAME)
