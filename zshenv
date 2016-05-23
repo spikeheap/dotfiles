@@ -45,7 +45,20 @@ function gitup() {
 	git co ${TMP_INITIAL_BRANCH}
 }
 
+# Short for docker-machine
+dm () {
+  docker-machine $@
+}
+
+# Switch docker pointer to another host (dmenv my_remote_host)
+dmenv () {
+  eval "$(docker-machine env $1)"
+}
+
 # eval "$(/usr/local/bin/docker-machine env default --shell=zsh)"
+
+# Use slowdisk for docker on the iMac because it's big
+[[ $(hostname -s) == imac ]] && export MACHINE_STORAGE_PATH=/Volumes/Thunder/docker/machine
 
 # Useful aliases
 alias pad="bundle exec padrino"

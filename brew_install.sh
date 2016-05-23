@@ -61,7 +61,7 @@ brew install qt
 
 # Git
 brew install git
-brew install git-flow
+brew install git-flow-avh
 brew install git-extras
 brew install --HEAD hub
 

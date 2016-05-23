@@ -33,3 +33,7 @@
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 #[[ -s "/Users/rb/.gvm/bin/gvm-init.sh" ]] && source "/Users/rb/.gvm/bin/gvm-init.sh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Volumes/Twilight/Users/rb/.sdkman"
+[[ -s "/Volumes/Twilight/Users/rb/.sdkman/bin/sdkman-init.sh" ]] && source "/Volumes/Twilight/Users/rb/.sdkman/bin/sdkman-init.sh"

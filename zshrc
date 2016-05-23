@@ -109,3 +109,5 @@ function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*
 
 eval `/usr/libexec/path_helper -s`
 eval "$(rbenv init -)"
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
