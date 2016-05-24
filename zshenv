@@ -17,22 +17,6 @@ export GIT_EDITOR='vim'
 
 #export GIT_TEMPLATE_DIR=`/Users/rb/.rbenv/shims/overcommit --template-dir`
 
-
-function setjdk() {
-  if [ $# -ne 0 ]; then
-   removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
-   if [ -n "${JAVA_HOME+x}" ]; then
-    removeFromPath $JAVA_HOME
-   fi
-   export JAVA_HOME=`/usr/libexec/java_home -v $@`
-   export PATH=$JAVA_HOME/bin:$PATH
-  fi
- }
- function removeFromPath() {
-  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
- }
-#setjdk 1.8
-
 export TODO="t"
 
 # Install casks to /Applications 
@@ -45,20 +29,6 @@ function gitup() {
 	git co ${TMP_INITIAL_BRANCH}
 }
 
-# Short for docker-machine
-dm () {
-  docker-machine $@
-}
-
-# Switch docker pointer to another host (dmenv my_remote_host)
-dmenv () {
-  eval "$(docker-machine env $1)"
-}
-
-# eval "$(/usr/local/bin/docker-machine env default --shell=zsh)"
-
-# Use slowdisk for docker on the iMac because it's big
-[[ $(hostname -s) == imac ]] && export MACHINE_STORAGE_PATH=/Volumes/Thunder/docker/machine
 
 # Useful aliases
 alias pad="bundle exec padrino"
@@ -68,8 +38,10 @@ alias be="bundle exec"
 alias migrations="bundle exec rake ar:migrate && RACK_ENV=test bundle exec rake ar:reset"
 alias clean_test="RACK_ENV=test bundle exec padrino rake ar:reset"
 
+# Docker aliases
+alias drun="docker-compose run --rm padrino"
+alias drspec="docker-compose run --rm padrino bundle exec rspec"
+alias dpad="docker-compose run --rm padrino bundle exec padrino c"
+
 alias wakeimac="wakeonlan -i 46.227.149.240 -p 38755 38:c9:86:1b:dc:a1"
 eval `/usr/libexec/path_helper -s`
-
-MACHINE_NAME=default
-eval $(docker-machine env $MACHINE_NAME)
