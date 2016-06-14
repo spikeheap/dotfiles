@@ -40,9 +40,9 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 function gitup() {
 	TMP_INITIAL_BRANCH=`git rev-parse --abbrev-ref HEAD`
-	git co master && git pull
-	git co develop && git pull 
-	git co ${TMP_INITIAL_BRANCH}
+	git checkout master && git pull
+	git checkout develop && git pull 
+	git checkout ${TMP_INITIAL_BRANCH}
 }
 
 # Short for docker-machine
