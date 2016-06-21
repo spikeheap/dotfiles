@@ -1,10 +1,10 @@
 {
-	"color_scheme": "Packages/User/SublimeLinter/Solarized (Dark) (SL).tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
 	"font_options":
 	[
 		"gray_antialias"
 	],
-	"font_size": 15,
+	"font_size": 18,
 	"ignored_packages":
 	[
 		"Vintage",
