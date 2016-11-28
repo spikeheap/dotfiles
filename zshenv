@@ -24,9 +24,9 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 function gitup() {
 	TMP_INITIAL_BRANCH=`git rev-parse --abbrev-ref HEAD`
-	git co master && git pull
-	git co develop && git pull 
-	git co ${TMP_INITIAL_BRANCH}
+	git checkout master && git pull
+	git checkout develop && git pull 
+	git checkout ${TMP_INITIAL_BRANCH}
 }
 
 function push-release() {
@@ -46,11 +46,6 @@ alias brspec="dcrun padrino bundle exec rspec"
 alias be="dcrun padrino bundle exec"
 alias migrations="dcrun padrino bundle exec rake ar:migrate && dcrun -e RACK_ENV=test padrino  bundle exec rake ar:reset"
 alias clean_test="dcrun -e RACK_ENV=test padrino bundle exec padrino rake ar:reset"
-
-# Docker aliases
-alias dtrun="docker-compose run --rm -e RACK_ENV=test padrino"
-
-alias drspec="docker-compose run --rm padrino bundle exec rspec"
 
 alias wakeimac="wakeonlan -i 46.227.149.240 -p 38755 38:c9:86:1b:dc:a1"
 eval `/usr/libexec/path_helper -s`
