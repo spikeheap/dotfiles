@@ -29,19 +29,29 @@ function gitup() {
 	git co ${TMP_INITIAL_BRANCH}
 }
 
+function push-release() {
+  TMP_INITIAL_BRANCH=`git rev-parse --abbrev-ref HEAD`
+  git co master && git push
+  git co develop && git push 
+  git push --tags
+  git co ${TMP_INITIAL_BRANCH}
+}
 
 # Useful aliases
-alias pad="bundle exec padrino"
-alias prake="bundle exec padrino rake"
-alias brspec="bundle exec rspec"
-alias be="bundle exec"
-alias migrations="bundle exec rake ar:migrate && RACK_ENV=test bundle exec rake ar:reset"
-alias clean_test="RACK_ENV=test bundle exec padrino rake ar:reset"
+alias dc="docker-compose"
+alias dcrun="docker-compose run --rm"
+alias pad="dcrun padrino bundle exec padrino"
+alias prake="dcrun padrino bundle exec padrino rake"
+alias brspec="dcrun padrino bundle exec rspec"
+alias be="dcrun padrino bundle exec"
+alias migrations="dcrun padrino bundle exec rake ar:migrate && dcrun -e RACK_ENV=test padrino  bundle exec rake ar:reset"
+alias clean_test="dcrun -e RACK_ENV=test padrino bundle exec padrino rake ar:reset"
 
 # Docker aliases
-alias drun="docker-compose run --rm padrino"
+alias dtrun="docker-compose run --rm -e RACK_ENV=test padrino"
+
 alias drspec="docker-compose run --rm padrino bundle exec rspec"
-alias dpad="docker-compose run --rm padrino bundle exec padrino c"
 
 alias wakeimac="wakeonlan -i 46.227.149.240 -p 38755 38:c9:86:1b:dc:a1"
 eval `/usr/libexec/path_helper -s`
+

@@ -6,6 +6,7 @@
 	"installed_packages":
 	[
 		"API Blueprint",
+		"BeautifyRuby",
 		"Case Conversion",
 		"Color Highlighter",
 		"CTags",
@@ -21,8 +22,10 @@
 		"HTML5",
 		"Indent XML",
 		"JavaScript Snippets",
+		"Legal Document Snippets",
 		"LESS",
 		"MarkdownLight",
+		"orgmode",
 		"Package Control",
 		"Ruby Slim",
 		"SCSS",
@@ -30,6 +33,10 @@
 		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-jshint",
 		"SublimeLinter-json",
-		"WordCount"
+		"SublimeLinter-rubocop",
+		"SublimeLinter-ruby",
+		"Theme - Cobalt2",
+		"WordCount",
+		"yardoc"
 	]
 }
