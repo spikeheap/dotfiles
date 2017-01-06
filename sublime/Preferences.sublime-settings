@@ -11,6 +11,19 @@
 		"Vintage",
 		"Wallaby"
 	],
+	"paths":
+	{
+		"linux":
+		[
+		],
+		"osx":
+		[
+			"~/.rbenv/shims"
+		],
+		"windows":
+		[
+		]
+	},
 	"spell_check": true,
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true

@@ -5,5 +5,6 @@ gradle
 jekyllconfig
 profile
 vimrc
+zprofile
 zshenv
 zshrc

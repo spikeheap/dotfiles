@@ -5,6 +5,8 @@
 	],
 	"installed_packages":
 	[
+		"ANSIescape",
+		"ApacheConf.tmLanguage",
 		"API Blueprint",
 		"BeautifyRuby",
 		"Case Conversion",
