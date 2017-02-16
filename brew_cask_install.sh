@@ -10,11 +10,11 @@ brew tap caskroom/versions
 # brew tap brew caskroom/versions
 
 # Dependencies
-brew cask install adobe-air
+#brew cask install adobe-air
 
 # Productivity bits
 brew cask install flux
-brew cask install libreoffice
+#brew cask install libreoffice
 brew cask install alfred
 #brew cask install toggldesktop
 
@@ -39,10 +39,10 @@ brew cask install cloak
 brew cask install wireshark
 
 # Editing stuff
-brew cask install sublime-text3
+brew cask install sublime-text
 brew cask install atom
 brew cask install visual-studio-code
-brew cask install balsamiq-mockups
+#brew cask install balsamiq-mockups
 #brew cask install intellij-idea
 brew cask install rubymine
 brew cask install omnigraffle
@@ -57,7 +57,7 @@ brew cask install screenhero
 brew cask install sourcetree
 
 # DB
-brew cask install postico
+#brew cask install postico
 brew cask install pgadmin3
 brew cask install querious
 
@@ -82,13 +82,12 @@ brew cask install licecap
 brew cask install skitch
 #brew cask install sketchup
 brew cask install slack
+brew cask install telegram
 brew cask install skype
 #brew cask install gitter
+brew cask install telegram
 brew cask install vlc
 
-brew cask install querious
-brew cask install postico
-brew cask install pgadmin3
 
 # Browsers
 brew cask install --appdir="/Applications" firefox
@@ -98,8 +97,7 @@ brew cask install google-chrome-canary
 
 # Virtualization
 #brew cask install boot2docker
-brew cask install dockertoolbox
-#brew cask install kitematic
+brew cask install docker
 brew cask install vagrant
 brew cask install virtualbox
 #brew cask install vmware-fusion
@@ -113,5 +111,5 @@ brew cask install xld
 brew cask install steam
 
 # Not so fun
-brew cask install ynab
+
 
