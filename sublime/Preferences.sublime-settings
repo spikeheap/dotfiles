@@ -5,12 +5,12 @@
 	[
 		"gray_antialias"
 	],
-	"font_size": 18,
+	"font_size": 20,
 	"ignored_packages":
 	[
+		"Indent XML",
 		"Vintage",
-		"Wallaby",
-		"WordCount"
+		"Wallaby"
 	],
 	"paths":
 	{

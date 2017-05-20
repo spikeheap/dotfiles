@@ -94,6 +94,7 @@ HELPDIR=/usr/local/share/zsh/help
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh/site-functions/_aws
+source <(kubectl completion zsh)
 
 new-ruby-script()
 {

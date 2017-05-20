@@ -100,6 +100,7 @@ brew cask install google-chrome-canary
 brew cask install docker
 brew cask install vagrant
 brew cask install virtualbox
+brew cask install minikube
 #brew cask install vmware-fusion
 #brew cask install chefdk
 

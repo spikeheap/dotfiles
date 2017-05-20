@@ -87,6 +87,7 @@ launchctl load -w ~/Library/LaunchAgents/cx.pow.powd.plist
 brew install python
 
 # Cloudy future
+brew install kubernetes-cli
 brew install heroku
 #brew install aws-elasticbeanstalk
 #brew install duck

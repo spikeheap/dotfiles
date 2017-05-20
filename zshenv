@@ -1,12 +1,7 @@
 ### rbenv
 # use this until rbenv plugin is in better shape
 # see https://github.com/robbyrussell/oh-my-zsh/pull/1118
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-
-#export PATH=/usr/local/share/npm/bin:$PATH
-#export PATH=/usr/local/bin:$PATH
-#export PATH
+export PATH="./bin:$HOME/.rbenv/bin:$PATH"
 
 # Your place for hosting Git repos. I use this for private repos.
 export GIT_HOSTING='git@github.com'
@@ -36,6 +31,9 @@ function push-release() {
   OVERCOMMIT_DISABLE=1 git push --tags
   git co ${TMP_INITIAL_BRANCH}
 }
+
+# Allow docker to connect to Minikube
+#eval $(minikube docker-env)
 
 # Useful aliases
 alias dc="docker-compose"

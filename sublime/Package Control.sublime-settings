@@ -2,7 +2,6 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"WordCount"
 	],
 	"installed_packages":
 	[
@@ -23,9 +22,11 @@
 		"Gist",
 		"Git",
 		"Github Tools",
+		"Haml",
 		"HTML5",
 		"Indent XML",
 		"JavaScript Snippets",
+		"JSON Reindent",
 		"Legal Document Snippets",
 		"LESS",
 		"MarkdownLight",
@@ -33,8 +34,10 @@
 		"Package Control",
 		"Ruby Slim",
 		"SCSS",
+		"Stylefmt",
 		"SublimeLinter",
 		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-contrib-stylelint",
 		"SublimeLinter-jshint",
 		"SublimeLinter-json",
 		"SublimeLinter-rubocop",
