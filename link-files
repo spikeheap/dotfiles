@@ -1,9 +1,4 @@
-bash_profile
-gitconfig
-gitignore
-gradle
 jekyllconfig
-profile
 vimrc
 zprofile
 zshenv

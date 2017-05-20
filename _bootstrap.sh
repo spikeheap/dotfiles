@@ -16,29 +16,7 @@ echo "========== Ruby global modules"
 sudo gem install bundler
 bundle install --system
 
-echo "========== node global modules"
-npm install -g grunt-cli
-npm install -g gulp
-npm install -g karma
-npm install -g travis
-npm install -g yo
-
-# npm install -g ijavascript
-
-
-echo "========== node global modules"
-pip install jupyter
-
-echo "========== Java and Groovy"
-curl -s get.gvmtool.net | zsh
-source "~/.sdkman/bin/sdkman-init.sh"
-sdk install groovy
-sdk install gradle
-
-#echo "========== make bash nicer so I don't use ZSH"
-#git clone https://github.com/revans/bash-it.git ~/.bash_it
-
-echo "========== and then give up and install ZSH anyway..."
+echo "========== install ZSH"
 curl -L http://install.ohmyz.sh | sh
 cd ~/.oh-my-zsh/custom/plugins
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
