@@ -26,7 +26,6 @@ brew install freetype
 brew install gpg2
 #brew install mobile-shell
 brew install nmap
-brew install s3cmd
 brew install tmux
 brew install wget
 brew install ctags
@@ -73,15 +72,9 @@ mkdir ~/.nvm
 # Ruby
 brew install ruby-build
 brew install rbenv
-rbenv install 2.2.3
-rbenv global 2.2.3
+rbenv install 2.6.3
+rbenv global 2.6.3
 rbenv rehash
-
-brew install pow
-sudo pow --install-system
-pow --install-local
-sudo launchctl load -w /Library/LaunchDaemons/cx.pow.firewall.plist
-launchctl load -w ~/Library/LaunchAgents/cx.pow.powd.plist
 
 # Python
 brew install python
