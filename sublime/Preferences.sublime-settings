@@ -1,14 +1,13 @@
 {
-	"color_scheme": "Packages/Theme - Cobalt2/cobalt2.tmTheme",
-	"dictionary": "Packages/Language - English/en_GB.dic",
 	"font_options":
 	[
 		"gray_antialias"
 	],
-	"font_size": 20,
+	"font_size": 18,
 	"ignored_packages":
 	[
 		"Indent XML",
+		"Markdown",
 		"Vintage",
 		"Wallaby"
 	],
@@ -27,5 +26,6 @@
 	},
 	"spell_check": true,
 	"tab_size": 2,
+	"theme": "Cobalt2.sublime-theme",
 	"translate_tabs_to_spaces": true
 }
