@@ -7,13 +7,13 @@ Miscellaneous settings files I use across systems. Mostly OSX-specific.
 
 From a fresh OSX install:
 
-1. Generate an SSH key with `ssh-keygen`.
+- Generate an SSH key with `ssh-keygen`.
   - Copy the generated key with `cat .ssh/id_rsa.pub | pbcopy`.
-2. Add that SSH key to your [GitHub SSH keys](https://github.com/settings/keys).
-3. Clone this repo with:
+- Add that SSH key to your [GitHub SSH keys](https://github.com/settings/keys).
+- Clone this repo with:
   - `mkdir src && cd src` 
   - `git clone git@github.com:spikeheap/dotfiles` (and install XCode tools while you're at it).
-4. In the repo run `./_bootstrap.sh`.
+- In the repo run `./_bootstrap.sh`.
 
 After that you'll probably want to do a couple of manual tasks:
 
