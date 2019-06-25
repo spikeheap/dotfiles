@@ -1,6 +1,6 @@
 
 [core]
-	excludesfile = /Users/rb/.gitignore_global
+	excludesfile = ~/.gitignore_global
 
 [alias]
 lp = log -p
@@ -48,3 +48,5 @@ ui = true
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[commit]
+	gpgsign = true

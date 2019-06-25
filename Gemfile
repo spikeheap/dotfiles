@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
 gem "bundler"
-gem "overcommit"
-gem "powify"
+gem "rubocop"
+gem "rubocop-rails"
+
