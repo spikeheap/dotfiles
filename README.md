@@ -17,8 +17,25 @@ From a fresh OSX install:
 
 After that you'll probably want to do a couple of manual tasks:
 
-1. Install your purchased software from the App Store.
-2. Enable your mail accounts in Settings -> Internet Accounts.
+- Set up Little Snitch:
+  - '/usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg/Little\ Snitch\ Installer.app'
+- Install your purchased software from the App Store.
+- Enable your mail accounts in Settings -> Internet Accounts.
+- Settings -> Notifications -> Mail -> set to none
+- To install and/or use little-snitch you may need to enable its kernel extension in: System Preferences → Security & Privacy → General
+- Set up Backblaze
+  - `/usr/local/Caskroom/backblaze/latest/Backblaze\ Installer.app`
+  - Enable Full-Disk Access: `System Preferences → Security & Privacy → Privacy → Full Disk Access`
+  - Inherit backup state, if this is a rebuild
+- Set up Alfred
+  - Disable Spotlight's ⌘-space keyboard shortcut.
+  - Configure Alfred to use ⌘-space.
+- Set SizeUp to start at boot
+- Set iTerm to load the preferences from ~/dotfiles/iterm/
+- Configure ZSH to be the default terminal (if it has not automatically done this): `chsh -s $(which zsh)`
+- Complete Little Snitch installation
+- Run flux 
+- Add Slack accounts
 
 # Thanks
 
