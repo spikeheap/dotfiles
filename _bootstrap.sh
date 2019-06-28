@@ -17,10 +17,7 @@ sudo gem install bundler
 bundle install --system
 
 echo "========== install ZSH"
-curl -L http://install.ohmyz.sh | sh
-cd ~/.oh-my-zsh/custom/plugins
-git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-cd -
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "========== link files"
 while read name; do

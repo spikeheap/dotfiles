@@ -1,5 +1,17 @@
 export PATH="./bin:$PATH"
 
+# ncurses is keg-only. For compilers to find it, we need to set the following
+#export LDFLAGS="-L/usr/local/opt/ncurses/lib"
+#export CPPFLAGS="-I/usr/local/opt/ncurses/include"
+
+# libffi is keg-only
+#export LDFLAGS="-L/usr/local/opt/libffi/lib"
+
+# readline is keg-only
+#export LDFLAGS="-L/usr/local/opt/readline/lib"
+#export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
+#export CPPFLAGS="-I/usr/local/opt/readline/include"
+
 export GIT_EDITOR='vim'
 
 # Your place for hosting Git repos. I use this for private repos.

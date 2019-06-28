@@ -29,7 +29,7 @@ brew cask install dropbox
 
 
 # Security
-brew cask install gpgtools
+brew cask install gpg-suite
 
 # Backup
 brew cask install backblaze
@@ -78,7 +78,7 @@ brew cask install qlstephen
 brew cask install sizeup
 brew cask install transmit
 
-brew cask install iterm2
+brew cask install iterm2-beta
 brew cask install licecap
 # brew cask install skitch
 # brew cask install sketchup
