@@ -36,7 +36,7 @@ brew cask install backblaze
 
 # Network
 brew cask install little-snitch
-brew cask install cloak
+brew cask install encryptme
 brew cask install wireshark
 
 # Editing stuff

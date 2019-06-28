@@ -2,7 +2,7 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"Cobalt2 Flat Theme"
+		"SublimeLinter-json"
 	],
 	"installed_packages":
 	[
@@ -11,7 +11,6 @@
 		"Babel",
 		"BeautifyRuby",
 		"Case Conversion",
-		"Cobalt2 Flat Theme",
 		"Color Highlighter",
 		"CTags",
 		"Cucumber",
