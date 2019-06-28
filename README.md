@@ -3,6 +3,8 @@ dotfiles
 
 Miscellaneous settings files I use across systems. Mostly OSX-specific.
 
+This setup replaces https://ryanbrooks.co.uk/posts/2013-06-10-setting-up-os-x-mountain-lion/.
+
 # To get up and running
 
 From a fresh OSX install:
@@ -36,6 +38,8 @@ After that you'll probably want to do a couple of manual tasks:
 - Complete Little Snitch installation
 - Run flux 
 - Add Slack accounts
+- Sharing: enable remote login (on iMac only) and set hostname.
+- Keyboard: Modifier Keys: Caps Lock to Command (Saves hitting caps lock by mistake)
 
 # Thanks
 
