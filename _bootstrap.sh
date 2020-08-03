@@ -12,9 +12,9 @@ source brew_install.sh
 echo "========== cask all the things"
 source brew_cask_install.sh
 
-echo "========== Ruby global modules"
-sudo gem install bundler
-bundle install --system
+#echo "========== Ruby global modules"
+#sudo gem install bundler
+#bundle install --system
 
 echo "========== install ZSH"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
