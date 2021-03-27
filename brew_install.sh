@@ -29,10 +29,10 @@ brew install nmap
 brew install tmux
 brew install wget
 brew install ctags
-brew install p7zip
+# brew install p7zip
 brew install jq
-brew install zeromq
-brew install qt
+# brew install zeromq
+# brew install qt
 
 # DB
 #brew install mysql
@@ -60,20 +60,20 @@ brew install qt
 
 # Git
 brew install git
-brew install git-flow-avh
-brew install git-extras
+# brew install git-flow-avh
+# brew install git-extras
 brew install --HEAD hub
 
 # Node
-brew install node
+# brew install node
 brew install nvm
 mkdir ~/.nvm
 
 # Ruby
 brew install ruby-build
 brew install rbenv
-rbenv install 2.6.3
-rbenv global 2.6.3
+rbenv install 3.0.0
+rbenv global 3.0.0
 rbenv rehash
 
 # Python

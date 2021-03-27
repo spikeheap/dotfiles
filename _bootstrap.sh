@@ -3,7 +3,7 @@ xcode-select --install
 
 echo "========== install homebrew"
 if ! hash brew 2>/dev/null; then
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 echo "========== brew the world"
@@ -46,10 +46,6 @@ ln -s "$PWD/sublime/Package Control.sublime-settings" "$SUBLIME_PACKAGE_CONTROL_
 echo "========== configure preferences"
 ./osx
 
-echo "========== set up SSH"
-ssh-keygen -t rsa -b 4096 -C "ryan@ryanbrooks.co.uk" -f ~/.ssh/id_rsa
-ssh-add ~/.ssh/id_rsa
-
 echo "========== Check out some useful repos"
 mkdir ~/src
 cd ~/src
@@ -59,7 +55,7 @@ echo "========== Postinstall steps"
 open "/opt/homebrew-cask/Caskroom/backblaze/latest/Backblaze Installer.app"
 
 # Run this last because it reboots the system
-open "/opt/homebrew-cask/Caskroom/little-snitch/3.6.1/Little Snitch Installer.app"
+open "/opt/homebrew-cask/Caskroom/little-snitch/*/Little Snitch Installer.app"
 
 
 

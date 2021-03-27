@@ -9,8 +9,7 @@ This setup replaces https://ryanbrooks.co.uk/posts/2013-06-10-setting-up-os-x-mo
 
 From a fresh OSX install:
 
-- Generate an SSH key with `ssh-keygen`.
-  - Copy the generated key with `cat .ssh/id_rsa.pub | pbcopy`.
+- Copy your SSH key with `cat .ssh/id_rsa.pub | pbcopy`.
 - Add that SSH key to your [GitHub SSH keys](https://github.com/settings/keys).
 - Clone this repo with:
   - `mkdir src && cd src` 
