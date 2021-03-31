@@ -35,11 +35,11 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  bundler
-  dotenv
-  osx
-  rbenv
-  ruby
+  # bundler
+  # dotenv
+  # osx
+  # rbenv
+  # ruby
 )
 
 # Activate zsh-completions
@@ -62,25 +62,25 @@ unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh/site-functions/_aws
-source <(kubectl completion zsh)
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh/site-functions/_aws
+# source <(kubectl completion zsh)
 
-eval `/usr/libexec/path_helper -s`
+# eval `/usr/libexec/path_helper -s`
 eval "$(rbenv init -)"
 
-test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+# test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
 # Bind OPTION-Left/Right to word jumps in ZSH
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
-
+export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

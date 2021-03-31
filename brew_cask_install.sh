@@ -69,7 +69,7 @@ brew install telegram
 # brew install skype
 # brew install gitter
 brew install vlc
-
+brew install finicky
 
 # Browsers
 # brew install firefox
