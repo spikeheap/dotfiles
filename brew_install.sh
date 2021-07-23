@@ -24,6 +24,10 @@ brew install automake
 brew install freetype
 #brew install gist
 brew install gpg2
+
+# for signed commits with password-protected gpg key
+brew install pinentry-mac
+
 #brew install mobile-shell
 brew install nmap
 brew install tmux
