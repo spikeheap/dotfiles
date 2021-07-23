@@ -17,7 +17,7 @@ ui = true
 [user]
 	name = Ryan Brooks
 	email = ryan@slatehorse.com
-	signingkey = DA607576
+	#signingkey = 0D135321
 
 [init]
 	defaultBranch = main
@@ -53,6 +53,6 @@ ui = true
 	required = true
 [commit]
 	gpgsign = true
-	signingkey = DA607576
+	# signingkey = 0D135321
 [gpg]
 	program = gpg
