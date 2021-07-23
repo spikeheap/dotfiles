@@ -12,6 +12,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # # General UI/UX                                                               #
 # ###############################################################################
 
+# Revert Big Sur inlined-titles (restore file icons in window titles e.g. Preview)
+defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
+
 # Menu bar: disable transparency
 #defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
