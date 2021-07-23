@@ -31,7 +31,7 @@ module.exports = {
     {
       // Open apple.com and example.org urls in Safari
       match: ["meet.google.com/*"],
-      browser: "Google Chrome"
+      browser: "Brave Browser"
     },
     {
       match: "open.spotify.com/*",
