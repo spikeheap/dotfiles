@@ -36,6 +36,7 @@ After that you'll probably want to do a couple of manual tasks:
 - Configure ZSH to be the default terminal (if it has not automatically done this): `chsh -s $(which zsh)`
 - Complete Little Snitch installation
 - Run flux 
+- Set up Finicky
 - Add Slack accounts
 - Sharing: enable remote login (on iMac only) and set hostname.
 - Keyboard: Modifier Keys: Caps Lock to Command (Saves hitting caps lock by mistake)
