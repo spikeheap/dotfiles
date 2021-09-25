@@ -29,8 +29,10 @@ module.exports = {
   ],
   handlers: [
     {
-      // Open apple.com and example.org urls in Safari
-      match: ["meet.google.com/*"],
+      match: [
+        "meet.google.com/*",
+        "www.gov.uk/*" // to make the most of the GOVUK browser extension
+      ],
       browser: "Brave Browser"
     },
     {
