@@ -2,6 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
+export PATH=$PATH:~/govuk/govuk-docker/exe
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -84,3 +85,5 @@ source $(brew --prefix nvm)/nvm.sh
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+unalias gds
