@@ -52,6 +52,9 @@ new-ruby-script()
 
 function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 
+# Don't prompt for confirmation whenever a * is used in rm
+setopt rm_star_silent 
+
 # Useful aliases
 alias brspec="bundle exec rspec"
 alias be="bundle exec"
