@@ -25,6 +25,9 @@ export TODO="t"
 # Install casks to /Applications 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# https://consoledonottrack.com
+export DO_NOT_TRACK=1
+
 function gitup() {
 	TMP_INITIAL_BRANCH=`git rev-parse --abbrev-ref HEAD`
 	git checkout master && git pull
