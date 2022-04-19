@@ -13,16 +13,11 @@ brew install alfred
 
 brew install daisydisk
 
-# Security
-# brew install gpg-suite
-
 # Backup
 brew install backblaze
 
 # Network
 brew install little-snitch
-# brew install encryptme
-# brew install wireshark
 
 # Editing stuff
 brew install sublime-text
@@ -36,25 +31,26 @@ brew install visual-studio-code
 # brew install mactex
 
 # Development
-brew install ngrok
-brew install sourcetree
+# brew install ngrok
+# brew install sourcetree
 
 # DB
-#brew install postico
+# brew install postico
 brew install pgadmin4
 brew install querious
 
 # Languages
-brew install java
-#brew install darteditor
-#brew install rust
-#brew install scratch
+# brew install java
+# brew install darteditor
+# brew install rust
+# brew install scratch
 
 # Geo
-#brew install gdal-framework matplotlib
-#brew install qgis
+# brew install gdal-framework matplotlib
+# brew install qgis
 
 # Utilities
+brew install finicky
 brew install 1password
 # brew install qlstephen
 # brew install sizeup
@@ -67,10 +63,10 @@ brew install licecap
 # brew install sketchup
 brew install slack
 brew install telegram
+brew install discord
 # brew install skype
 # brew install gitter
-brew install vlc
-brew install finicky
+# brew install vlc
 
 # Browsers
 # brew install firefox
@@ -87,7 +83,7 @@ brew install brave-browser
 #brew install chefdk
 
 # Fun
-brew install spotify
+brew install tidal
 # brew install transmission
 #brew install transmission-remote-gui
 # brew install xld

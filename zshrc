@@ -87,3 +87,4 @@ source $(brew --prefix nvm)/nvm.sh
 # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 unalias gds
+. /usr/local/opt/asdf/libexec/asdf.sh

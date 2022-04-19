@@ -30,8 +30,8 @@ brew install pinentry-mac
 
 #brew install mobile-shell
 brew install nmap
-brew install tmux
-brew install wget
+# brew install tmux
+# brew install wget
 brew install ctags
 # brew install p7zip
 brew install jq
@@ -68,24 +68,14 @@ brew install git
 # brew install git-extras
 brew install --HEAD hub
 
-# Node
-# brew install node
-brew install nvm
-mkdir ~/.nvm
+# ASDF is a dependency manager we can use for Node, Ruby, Python, etc...
+# Replaces nvm and rbenv
+brew install asdf
 
-# Ruby
-brew install ruby-build
-brew install rbenv
-rbenv install 3.0.0
-rbenv global 3.0.0
-rbenv rehash
-
-# Python
-brew install python
 
 # Cloudy future
-brew install kubernetes-cli
-brew install heroku
+# brew install kubernetes-cli
+# brew install heroku
 #brew install aws-elasticbeanstalk
 #brew install duck
 brew install awscli

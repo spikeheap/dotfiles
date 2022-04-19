@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Base on http://mths.be/osx
+# Base on https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 
 # Ask for the administrator password upfront
 sudo -v
@@ -17,12 +17,6 @@ defaults write -g NSWindowSupportsAutomaticInlineTitle -bool false
 
 # Menu bar: disable transparency
 #defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
-
-# Set highlight color to teal
-#defaults write NSGlobalDomain AppleHighlightColor -string "0.00 0.847058822 0.999999"
-
-# Set sidebar icon size to medium
-defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 # Set scrollbars behaviour
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
@@ -42,7 +36,7 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 ###############################################################################
 
 # Disable local Time Machine snapshots
-sudo tmutil disablelocal
+# hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 
 ###############################################################################
@@ -84,7 +78,7 @@ systemsetup -settimezone "Europe/London" > /dev/null
 ###############################################################################
 
 # Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
+# defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 ###############################################################################
 # Finder                                                                      #
