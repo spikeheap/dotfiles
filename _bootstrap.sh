@@ -31,6 +31,12 @@ while read name; do
 
 done < "$PWD/link-files"
 
+SSH_CONFIG_FILE="$HOME/.ssh/config" 
+if [ -a "$SSH_CONFIG_FILE" ]; then
+	mv "$SSH_CONFIG_FILE" "$SSH_CONFIG_FILE.old"
+fi
+ln -s "$PWD/ssh/config" "$SSH_CONFIG_FILE"
+
 SUBLIME_SETTINGS="$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings" 
 if [ -a "$SUBLIME_SETTINGS" ]; then
 	mv "$SUBLIME_SETTINGS" "$SUBLIME_SETTINGS.old"
