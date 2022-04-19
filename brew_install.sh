@@ -23,7 +23,7 @@ brew install autogen
 brew install automake
 brew install freetype
 #brew install gist
-brew install gpg2
+brew install gpg-suite-no-mail # Thanks to ChrisBAshton for the non-mail variant
 
 # for signed commits with password-protected gpg key
 brew install pinentry-mac
