@@ -57,7 +57,8 @@ brew install java
 # Utilities
 brew install 1password
 # brew install qlstephen
-brew install sizeup
+# brew install sizeup
+brew install rectangle
 brew install transmit
 
 brew install iterm2

@@ -55,4 +55,4 @@ ui = true
 	gpgsign = true
 	# signingkey = 0D135321
 [gpg]
-	program = gpg
+	program = gpg2

@@ -27,6 +27,9 @@ export TODO="t"
 # Install casks to /Applications 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# https://consoledonottrack.com
+export DO_NOT_TRACK=1
+
 function gitup() {
 	TMP_INITIAL_BRANCH=`git rev-parse --abbrev-ref HEAD`
 	git checkout master && git pull
@@ -53,6 +56,9 @@ new-ruby-script()
 }
 
 function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+
+# Don't prompt for confirmation whenever a * is used in rm
+setopt rm_star_silent 
 
 # Useful aliases
 alias brspec="bundle exec rspec"
