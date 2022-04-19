@@ -16,13 +16,14 @@ ui = true
 
 [user]
 	name = Ryan Brooks
-	email = ryan@slatehorse.com
-	#signingkey = 0D135321
+	email = ryan.brooks@digital.cabinet-office.gov.uk
+	signingkey = A1660FC2
 
 [init]
 	defaultBranch = main
 [push]
 	default = current
+  gpgSign = if-asked # Auto-enable when GitHub et al ship the feature
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
