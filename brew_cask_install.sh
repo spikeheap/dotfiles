@@ -75,10 +75,11 @@ brew install finicky
 # Browsers
 # brew install firefox
 brew install google-chrome
+brew install brave-browser
 
 # Virtualization
 #brew install boot2docker
-brew install docker
+# brew install docker
 # brew install vagrant
 # brew install virtualbox
 # brew install minikube

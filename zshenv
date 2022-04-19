@@ -12,6 +12,8 @@ export PATH="./bin:$PATH"
 #export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
 #export CPPFLAGS="-I/usr/local/opt/readline/include"
 
+CONFIGURE_OPTS=--with-openssl-dir=/usr/local/opt/openssl@1.1
+
 export GIT_EDITOR='vim'
 
 # Your place for hosting Git repos. I use this for private repos.
