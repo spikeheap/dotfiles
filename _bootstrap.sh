@@ -1,9 +1,12 @@
-sudo /usr/bin/xcodebuild -license
-xcode-select --install
+# We don't need to install XCode, because it will have been installed as part of the git clone action to retrieve
+# this repository
+# sudo /usr/bin/xcodebuild -license
+# xcode-select --install
 
 echo "========== install homebrew"
 if ! hash brew 2>/dev/null; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 echo "========== brew the world"
@@ -12,9 +15,11 @@ source brew_install.sh
 echo "========== cask all the things"
 source brew_cask_install.sh
 
-#echo "========== Ruby global modules"
-#sudo gem install bundler
-#bundle install --system
+echo "========== Set up language manager ASDF"
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf global nodejs latest
+asdf global ruby latest
 
 echo "========== install ZSH"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -37,13 +42,13 @@ if [ -a "$SSH_CONFIG_FILE" ]; then
 fi
 ln -s "$PWD/ssh/config" "$SSH_CONFIG_FILE"
 
-SUBLIME_SETTINGS="$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings" 
+SUBLIME_SETTINGS="$HOME/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings" 
 if [ -a "$SUBLIME_SETTINGS" ]; then
 	mv "$SUBLIME_SETTINGS" "$SUBLIME_SETTINGS.old"
 fi
 ln -s "$PWD/sublime/Preferences.sublime-settings" "$SUBLIME_SETTINGS"
 
-SUBLIME_PACKAGE_CONTROL_SETTINGS="$HOME/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+SUBLIME_PACKAGE_CONTROL_SETTINGS="$HOME/Library/Application Support/Sublime Text/Packages/User/Package Control.sublime-settings"
 if [ -a "$SUBLIME_PACKAGE_CONTROL_SETTINGS" ]; then
 	mv "$SUBLIME_PACKAGE_CONTROL_SETTINGS" "$SUBLIME_PACKAGE_CONTROL_SETTINGS.old"
 fi

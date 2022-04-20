@@ -20,6 +20,7 @@ brew install backblaze
 brew install little-snitch
 
 # Editing stuff
+brew install obsidian
 brew install sublime-text
 brew install visual-studio-code
 # brew install balsamiq-mockups
@@ -50,6 +51,7 @@ brew install querious
 # brew install qgis
 
 # Utilities
+brew install dropbox # used for Obsidian sync for now
 brew install finicky
 brew install 1password
 # brew install qlstephen

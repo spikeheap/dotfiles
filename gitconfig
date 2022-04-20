@@ -16,8 +16,7 @@ ui = true
 
 [user]
 	name = Ryan Brooks
-	email = ryan.brooks@digital.cabinet-office.gov.uk
-	signingkey = A1660FC2
+	email = ryan@slatehorse.com
 
 [init]
 	defaultBranch = main
