@@ -76,7 +76,11 @@ bindkey "\e\e[C" forward-word
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
-unalias gds
 
 
+source /Users/rb/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+# Disable the up arrow because it's hard to undo 20 years of muscle memory/expectation :D
+eval "$(atuin init zsh --disable-up-arrow)"
