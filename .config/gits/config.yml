@@ -1,0 +1,8 @@
+base: ~/src
+default_scope: ~/src
+max_depth: 4
+fetch: true
+ignore:
+  - .Trash
+  - node_modules
+  - vendor

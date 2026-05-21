@@ -2,7 +2,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
-export PATH=$PATH:~/govuk/govuk-docker/exe
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -36,11 +35,11 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  # bundler
-  # dotenv
+  bundler
+  dotenv
   # osx
   # rbenv
-  # ruby
+  ruby
 )
 
 # Activate zsh-completions
@@ -63,6 +62,8 @@ unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/local/share/zsh/site-functions/_aws
 # source <(kubectl completion zsh)
@@ -73,14 +74,19 @@ HELPDIR=/usr/local/share/zsh/help
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
 
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-
 
 
 source /Users/rb/.docker/init-zsh.sh || true # Added by Docker Desktop
 
 # Disable the up arrow because it's hard to undo 20 years of muscle memory/expectation :D
 eval "$(atuin init zsh --disable-up-arrow)"
+source /Users/rb/.config/op/plugins.sh
+
+# sentry
+export PATH="/Users/rb/.sentry/bin:$PATH"
+
+# sentry
+fpath=("/Users/rb/.local/share/zsh/site-functions" $fpath)
