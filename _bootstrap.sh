@@ -1,85 +1,71 @@
-# We don't need to install XCode, because it will have been installed as part of the git clone action to retrieve
-# this repository
-# sudo /usr/bin/xcodebuild -license
-# xcode-select --install
+#!/usr/bin/env bash
+set -euo pipefail
 
-echo "========== install homebrew"
-if ! hash brew 2>/dev/null; then
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Backup-then-symlink. Skips if already correct, never clobbers silently.
+link() {
+  local source="$1" target="$2"
+  mkdir -p "$(dirname "$target")"
+  if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
+    return
+  fi
+  if [[ -e "$target" || -L "$target" ]]; then
+    mv "$target" "$target.bak.$(date +%s)"
+    echo "Backed up existing $target"
+  fi
+  ln -s "$source" "$target"
+  echo "Linked $target -> $source"
+}
+
+echo "==> Homebrew"
+if ! command -v brew >/dev/null 2>&1; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+echo "==> brew bundle"
+brew bundle --file="$DOTFILES_DIR/Brewfile"
+
+echo "==> asdf plugins"
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git 2>/dev/null || true
+asdf plugin add ruby   https://github.com/asdf-vm/asdf-ruby.git   2>/dev/null || true
+asdf global nodejs latest 2>/dev/null || true
+asdf global ruby   latest 2>/dev/null || true
+
+echo "==> oh-my-zsh"
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-echo "========== brew the world"
-source brew_install.sh
+echo "==> link dotfiles"
+HOME_LINKS=(asdfrc gitconfig jekyllconfig vimrc zprofile zshenv zshrc)
+for name in "${HOME_LINKS[@]}"; do
+  link "$DOTFILES_DIR/$name" "$HOME/.$name"
+done
 
-echo "========== cask all the things"
-source brew_cask_install.sh
+link "$DOTFILES_DIR/ssh/config" "$HOME/.ssh/config"
+link "$DOTFILES_DIR/finicky.js" "$HOME/.finicky.js"
 
-echo "========== Set up language manager ASDF"
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-asdf global nodejs latest
-asdf global ruby latest
+# XDG config: link whole dirs so adding tools here doesn't need bootstrap changes
+link "$DOTFILES_DIR/.config/gits" "$HOME/.config/gits"
 
-echo "========== install ZSH"
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+SUBLIME_USER="$HOME/Library/Application Support/Sublime Text/Packages/User"
+link "$DOTFILES_DIR/sublime/Preferences.sublime-settings"     "$SUBLIME_USER/Preferences.sublime-settings"
+link "$DOTFILES_DIR/sublime/Package Control.sublime-settings" "$SUBLIME_USER/Package Control.sublime-settings"
 
-echo "========== link files"
-while read name; do
-    source="$PWD/$name"
-    target="$HOME/.$name"
-    
-    rm -rf $target
+echo "==> macOS defaults"
+"$DOTFILES_DIR/osx"
 
-    ln -s "$source" "$target"
-    echo "Linked $source to $target"
+cat <<EOF
 
-done < "$PWD/link-files"
-
-SSH_CONFIG_FILE="$HOME/.ssh/config" 
-if [ -a "$SSH_CONFIG_FILE" ]; then
-	mv "$SSH_CONFIG_FILE" "$SSH_CONFIG_FILE.old"
-fi
-ln -s "$PWD/ssh/config" "$SSH_CONFIG_FILE"
-
-SUBLIME_SETTINGS="$HOME/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings" 
-if [ -a "$SUBLIME_SETTINGS" ]; then
-	mv "$SUBLIME_SETTINGS" "$SUBLIME_SETTINGS.old"
-fi
-ln -s "$PWD/sublime/Preferences.sublime-settings" "$SUBLIME_SETTINGS"
-
-SUBLIME_PACKAGE_CONTROL_SETTINGS="$HOME/Library/Application Support/Sublime Text/Packages/User/Package Control.sublime-settings"
-if [ -a "$SUBLIME_PACKAGE_CONTROL_SETTINGS" ]; then
-	mv "$SUBLIME_PACKAGE_CONTROL_SETTINGS" "$SUBLIME_PACKAGE_CONTROL_SETTINGS.old"
-fi
-ln -s "$PWD/sublime/Package Control.sublime-settings" "$SUBLIME_PACKAGE_CONTROL_SETTINGS"
-
-echo "========== configure preferences"
-./osx
-
-echo "========== Check out some useful repos"
-mkdir ~/src
-cd ~/src
-git clone git@github.com:spikeheap/spikeheap.github.io
-
-echo "========== Postinstall steps"
-open "/opt/homebrew-cask/Caskroom/backblaze/latest/Backblaze Installer.app"
-
-# Run this last because it reboots the system
-open "/opt/homebrew-cask/Caskroom/little-snitch/*/Little Snitch Installer.app"
-
-
-
-echo "========== All done"
-cat <<EOT
-
-Now do this manually: 
-* Set up Alfred
-* Set iTerm to load the preferences from ~/dotfiles/iterm/
-* Set SizeUp to start at boot
-* Check Backblaze
-* Complete Little Snitch installation
-* Run flux 
-* Run: aws configure
-* Add Slack accounts
-EOT
+==> Manual follow-ups
+- iTerm: Settings -> General -> Preferences -> tick "Load preferences from a
+  custom folder or URL", point at $DOTFILES_DIR/iterm, tick "Save changes to
+  folder when iTerm quits".
+- Alfred: Settings -> Advanced -> "Set sync folder" -> $DOTFILES_DIR/alfred
+- Disable Spotlight's Cmd-Space, then set Alfred's hotkey to Cmd-Space.
+- Launch Backblaze, Little Snitch, 1Password to complete first-run setup.
+- Sharing -> Remote Login (iMac only); set hostname.
+- Keyboard -> Modifier Keys: Caps Lock -> Control.
+EOF

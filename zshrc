@@ -1,8 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-export PATH="/usr/local/opt/ncurses/bin:$PATH"
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -56,25 +54,19 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_GB.UTF-8
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-
 unalias run-help
 autoload run-help
-HELPDIR=/usr/local/share/zsh/help
+if (( $+commands[brew] )); then
+  HELPDIR="$(brew --prefix)/share/zsh/help"
+fi
 
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /usr/local/share/zsh/site-functions/_aws
-# source <(kubectl completion zsh)
 
 # test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
 # Bind OPTION-Left/Right to word jumps in ZSH
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
-
-# export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 

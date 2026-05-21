@@ -1,37 +1,18 @@
 {
-	"added_words":
-	[
-		"purée"
-	],
-	"color_scheme": "Packages/MarkdownEditing/MarkdownEditor.tmTheme",
+	// "color_scheme": "Mariana.sublime-color-scheme",
+	"font_size": 21,
 	"font_options":
 	[
-		"gray_antialias"
+		"gray_antialias",
 	],
-	"font_size": 17,
 	"ignored_packages":
 	[
-		"Cobalt2 Flat Theme",
-		"Indent XML",
-		"Markdown",
 		"Vintage",
-		"Wallaby"
 	],
-	"paths":
-	{
-		"linux":
-		[
-		],
-		"osx":
-		[
-			"~/.rbenv/shims"
-		],
-		"windows":
-		[
-		]
-	},
+	// "theme": "Adaptive.sublime-theme",
 	"spell_check": true,
 	"tab_size": 2,
-	"theme": "Cobalt2.sublime-theme",
-	"translate_tabs_to_spaces": true
+	// "color_scheme": "Monokai Pro.sublime-color-scheme",
+	"index_files": true,
+	"theme": "Adaptive.sublime-theme",
 }
