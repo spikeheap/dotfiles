@@ -48,7 +48,6 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -60,6 +59,7 @@ if (( $+commands[brew] )); then
   HELPDIR="$(brew --prefix)/share/zsh/help"
 fi
 
+alias bearcli='/Applications/Bear.app/Contents/MacOS/bearcli'
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
@@ -75,10 +75,29 @@ source /Users/rb/.docker/init-zsh.sh || true # Added by Docker Desktop
 
 # Disable the up arrow because it's hard to undo 20 years of muscle memory/expectation :D
 eval "$(atuin init zsh --disable-up-arrow)"
+
 source /Users/rb/.config/op/plugins.sh
+
+# When a GitHub PAT is already in the environment (e.g. inside a `claude`
+# session), prefer it over the 1Password gh plugin shim so GH_TOKEN is used.
+[[ -n $GH_TOKEN ]] && unalias gh 2>/dev/null
 
 # sentry
 export PATH="/Users/rb/.sentry/bin:$PATH"
 
 # sentry
 fpath=("/Users/rb/.local/share/zsh/site-functions" $fpath)
+
+# Colour the iTerm2 tab orange while a Claude session is running; revert on exit.
+claude() {
+  printf '\033]6;1;bg;red;brightness;255\a'
+  printf '\033]6;1;bg;green;brightness;140\a'
+  printf '\033]6;1;bg;blue;brightness;0\a'
+  {
+    command claude "$@"
+  } always {
+    printf '\033]6;1;bg;*;default\a'
+  }
+}
+
+dcsh() { devcontainer exec --workspace-folder "${1:-.}" zsh; }

@@ -1,47 +1,28 @@
-
 [core]
-	excludesfile = /Users/rb/.gitignore_global
+	excludesfile = ~/src/dotfiles/git/gitignore_global
+	hooksPath = /Users/rb/.git-hooks
 
 [alias]
-lp = log -p
-co = checkout
-st = status
-ci = commit
-di = diff
-dc = diff --cached
-pr = pull-request
+	lp = log -p
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	co = checkout
+	st = status
+	ci = commit
+	di = diff
+	dc = diff --cached
+	pr = pull-request
 
 [color]
-ui = true
-
-[user]
-	name = Ryan Brooks
-	email = ryan@slatehorse.com
+	ui = true
 
 [init]
 	defaultBranch = main
+
 [push]
 	default = current
-  gpgSign = if-asked # Auto-enable when GitHub et al ship the feature
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[diff]
-	tool = Kaleidoscope
-[difftool]
-	prompt = false
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
-[mergetool]
-	prompt = false
-[merge]
-	tool = Kaleidoscope
+  # gpgSign = if-asked # Auto-enable when GitHub et al ship the feature
+
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
@@ -51,8 +32,22 @@ ui = true
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+
+# Sign commits with 1Password-stored SSH key (https://developer.1password.com/docs/ssh/git-commit-signing/)
+[gpg]
+	format = ssh
 [commit]
 	gpgsign = true
-	# signingkey = 0D135321
-[gpg]
-	program = gpg2
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[user]
+	name = Ryan Brooks
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQKMDHbcgXZN32J03mcyCuNLTT00ud4fVbmrmM/aHnl
+
+# Custom email for Goodbase (catch remotes and local file location)
+[includeIf "gitdir:~/src/goodbase/"]
+  path = ~/src/dotfiles/git/config-github-goodbase
+[includeIf "hasconfig:remote.*.url:git@github.com:goodbasehq/**"]
+  path = ~/src/dotfiles/git/config-github-goodbase
+

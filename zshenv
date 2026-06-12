@@ -14,6 +14,9 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # https://consoledonottrack.com
 export DO_NOT_TRACK=1
+export DISABLE_TELEMETRY=1
+export SE_AVOID_STATS=true # Selenium requires opt-out of stats collection
+export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 
 function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 
