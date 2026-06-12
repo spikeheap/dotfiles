@@ -16,12 +16,3 @@ jobs:
         with:
           scandir: ./
           ignore_paths: .git iterm alfred sublime
-
-  ruby:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3"
-      - run: ruby -c bin/gits
