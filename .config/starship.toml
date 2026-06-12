@@ -1,0 +1,105 @@
+# Starship prompt — replaces oh-my-zsh's robbyrussell theme (the original is
+# captured as a comment in ~/.zshrc). Two-line layout: context on top, a clean
+# ➜ input line below so the cursor never shifts with path length. Nerd Font
+# symbols (https://starship.rs/presets/nerd-font) + Catppuccin Mocha palette.
+# Requires a Nerd Font selected in the terminal (FiraCode, via the Brewfile).
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+palette = "catppuccin_mocha"
+
+format = "$directory$git_branch$git_state$git_status$git_metrics$cmd_duration$line_break$character"
+right_format = "$nodejs$ruby$python"
+
+# robbyrussell's arrow, now on its own line: green on success, red on failure.
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[directory]
+style = "blue"
+format = "[$path]($style)[$read_only](red) "
+read_only = " 󰌾"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+symbol = " "
+style = "mauve"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "red"
+format = "([$all_status$ahead_behind]($style) )"
+conflicted = "✗ "
+modified = "✗ "
+untracked = "? "
+stashed = "≡ "
+staged = "+ "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+
+# Shown automatically mid-operation (rebase, merge, cherry-pick, …).
+[git_state]
+style = "peach"
+format = "[$state( $progress_current/$progress_total)]($style) "
+
+# +added / -deleted line counts for the working tree (runs `git diff`).
+[git_metrics]
+disabled = false
+added_style = "bold green"
+deleted_style = "bold red"
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
+
+# Duration of the last command, for anything that ran ≥2s.
+[cmd_duration]
+min_time = 2_000
+format = "[↳ $duration]($style) "
+style = "yellow"
+
+# Right-hand language versions (resolved by mise), shown only in a matching
+# project. Symbols from the Nerd Font Symbols preset.
+[nodejs]
+symbol = " "
+format = "[$symbol($version )]($style)"
+style = "green"
+
+[ruby]
+symbol = " "
+format = "[$symbol($version )]($style)"
+style = "red"
+
+[python]
+symbol = " "
+format = "[$symbol($version )]($style)"
+style = "yellow"
+
+# Catppuccin Mocha — https://github.com/catppuccin/starship
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"

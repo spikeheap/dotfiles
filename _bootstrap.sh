@@ -27,19 +27,18 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "==> brew bundle"
 brew bundle --file="$DOTFILES_DIR/Brewfile"
 
-echo "==> asdf plugins"
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git 2>/dev/null || true
-asdf plugin add ruby   https://github.com/asdf-vm/asdf-ruby.git   2>/dev/null || true
-asdf global nodejs latest 2>/dev/null || true
-asdf global ruby   latest 2>/dev/null || true
+echo "==> mise runtimes"
+# Sets global defaults; per-project versions come from .tool-versions files.
+mise use --global node@latest   2>/dev/null || true
+mise use --global ruby@latest   2>/dev/null || true
+mise use --global python@latest 2>/dev/null || true
+mise install 2>/dev/null || true
 
-echo "==> oh-my-zsh"
-if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-fi
+# Zsh plugins (antidote) and prompt (starship) come from the Brewfile; antidote
+# clones the plugins listed in .config/zsh/plugins.txt on first shell start.
 
 echo "==> link dotfiles"
-HOME_LINKS=(asdfrc gitconfig jekyllconfig vimrc zprofile zshenv zshrc)
+HOME_LINKS=(default-npm-packages gitconfig jekyllconfig vimrc zprofile zshenv zshrc)
 for name in "${HOME_LINKS[@]}"; do
   link "$DOTFILES_DIR/$name" "$HOME/.$name"
 done
@@ -47,8 +46,12 @@ done
 link "$DOTFILES_DIR/ssh/config" "$HOME/.ssh/config"
 link "$DOTFILES_DIR/finicky.js" "$HOME/.finicky.js"
 
-# XDG config: link whole dirs so adding tools here doesn't need bootstrap changes
-link "$DOTFILES_DIR/.config/gits" "$HOME/.config/gits"
+# XDG config: link each subdir so adding a tool here needs no bootstrap change
+for dir in "$DOTFILES_DIR"/.config/*/; do
+  link "${dir%/}" "$HOME/.config/$(basename "${dir%/}")"
+done
+# starship.toml is a file (not a dir), so link it explicitly
+link "$DOTFILES_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
 
 SUBLIME_USER="$HOME/Library/Application Support/Sublime Text/Packages/User"
 link "$DOTFILES_DIR/sublime/Preferences.sublime-settings"     "$SUBLIME_USER/Preferences.sublime-settings"
@@ -63,6 +66,8 @@ cat <<EOF
 - iTerm: Settings -> General -> Preferences -> tick "Load preferences from a
   custom folder or URL", point at $DOTFILES_DIR/iterm, tick "Save changes to
   folder when iTerm quits".
+- iTerm: Settings -> Profiles -> Text -> Font -> "FiraCode Nerd Font" (required
+  for starship prompt glyphs).
 - Alfred: Settings -> Advanced -> "Set sync folder" -> $DOTFILES_DIR/alfred
 - Disable Spotlight's Cmd-Space, then set Alfred's hotkey to Cmd-Space.
 - Launch Backblaze, Little Snitch, 1Password to complete first-run setup.

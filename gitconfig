@@ -43,6 +43,7 @@
 
 [user]
 	name = Ryan Brooks
+	email = ryan@slatehorse.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQKMDHbcgXZN32J03mcyCuNLTT00ud4fVbmrmM/aHnl
 
 # Custom email for Goodbase (catch remotes and local file location)

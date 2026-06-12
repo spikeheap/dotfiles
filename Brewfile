@@ -4,11 +4,12 @@
 # Casks land in /Applications
 cask_args appdir: "/Applications"
 
-# Shell
+# Shell (oh-my-zsh replaced by antidote + starship)
 brew "zsh"
 brew "zsh-completions"
-brew "zsh-syntax-highlighting"
 brew "zsh-lovers"
+brew "antidote"            # plugin manager (autosuggestions, syntax highlighting, OMZ plugins)
+brew "starship"           # cross-shell prompt
 
 # Search / navigation
 brew "the_silver_searcher"
@@ -29,8 +30,8 @@ brew "nmap"
 brew "git"
 brew "gh"
 
-# Language manager (replaces nvm/rbenv)
-brew "asdf"
+# Language/runtime manager (replaces asdf, nvm, rbenv)
+brew "mise"
 
 # Cloud
 brew "awscli"
@@ -66,6 +67,7 @@ cask "obsidian"
 
 # Terminal
 cask "iterm2"
+cask "font-fira-code-nerd-font"   # Nerd Font for starship glyphs
 
 # DB tools
 cask "pgadmin4"

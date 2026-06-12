@@ -1,0 +1,13 @@
+# Antidote plugin bundle. Loaded by ~/.zshrc via `antidote load`; antidote
+# statically compiles and caches this, regenerating when the file changes.
+
+# Fish-style suggestions from history as you type.
+zsh-users/zsh-autosuggestions
+
+# A few oh-my-zsh plugins — antidote pulls only these, NOT the framework.
+ohmyzsh/ohmyzsh path:plugins/git              # g* aliases (prompt handled by starship)
+ohmyzsh/ohmyzsh path:plugins/dotenv           # auto-load .env on cd
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+
+# Syntax highlighting MUST be sourced last.
+zdharma-continuum/fast-syntax-highlighting

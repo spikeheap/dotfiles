@@ -1,103 +1,81 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# ~/.zshrc — interactive shells. Shell options, completions, plugins (antidote),
+# prompt (starship) and keybindings. Per-tool and vendor snippets live in
+# ~/.config/zsh/conf.d/*.zsh and are sourced near the end of this file.
+#
+# oh-my-zsh was removed in favour of antidote + starship; see README.md.
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# --- shell options ---------------------------------------------------------
+setopt rm_star_silent          # don't prompt for confirmation on `rm *`
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="yyyy-mm-dd"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  bundler
-  dotenv
-  # osx
-  # rbenv
-  ruby
-)
-
-# Activate zsh-completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
-source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_GB.UTF-8
-
-unalias run-help
-autoload run-help
-if (( $+commands[brew] )); then
-  HELPDIR="$(brew --prefix)/share/zsh/help"
-fi
-
-alias bearcli='/Applications/Bear.app/Contents/MacOS/bearcli'
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-
-# test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
-
-# Bind OPTION-Left/Right to word jumps in ZSH
-bindkey "\e\e[D" backward-word
-bindkey "\e\e[C" forward-word
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-
-source /Users/rb/.docker/init-zsh.sh || true # Added by Docker Desktop
-
-# Disable the up arrow because it's hard to undo 20 years of muscle memory/expectation :D
-eval "$(atuin init zsh --disable-up-arrow)"
-
-source /Users/rb/.config/op/plugins.sh
-
-# When a GitHub PAT is already in the environment (e.g. inside a `claude`
-# session), prefer it over the 1Password gh plugin shim so GH_TOKEN is used.
-[[ -n $GH_TOKEN ]] && unalias gh 2>/dev/null
-
-# sentry
-export PATH="/Users/rb/.sentry/bin:$PATH"
-
-# sentry
-fpath=("/Users/rb/.local/share/zsh/site-functions" $fpath)
-
-# Colour the iTerm2 tab orange while a Claude session is running; revert on exit.
-claude() {
-  printf '\033]6;1;bg;red;brightness;255\a'
-  printf '\033]6;1;bg;green;brightness;140\a'
-  printf '\033]6;1;bg;blue;brightness;0\a'
-  {
-    command claude "$@"
-  } always {
-    printf '\033]6;1;bg;*;default\a'
-  }
+# --- eval cache ------------------------------------------------------------
+# `eval "$(tool init)"` forks a process every startup (~30-40ms each). Cache the
+# output and source it instead; regenerate only when the tool is upgraded
+# (binary newer than the cache).
+_cache_eval() {
+  local name=$1; shift
+  local cache="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/init-$name.zsh"
+  local prog=$(command -v "$1")
+  if [[ -n $prog && ( ! -s $cache || $prog -nt $cache ) ]]; then
+    mkdir -p "${cache:h}"
+    "$@" >| "$cache" 2>/dev/null
+  fi
+  [[ -s $cache ]] && source "$cache"
 }
 
-dcsh() { devcontainer exec --workspace-folder "${1:-.}" zsh; }
+# --- completions -----------------------------------------------------------
+# Extra completion dirs on fpath, then a single compinit. The dump is rebuilt
+# at most once a day; otherwise we skip the (slow) security audit with -C.
+[[ -n ${HOMEBREW_PREFIX:-} ]] && FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
+fpath=("$HOME/.local/share/zsh/site-functions" $fpath)   # sentry completions
+autoload -Uz compinit
+if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+
+# --- plugins (antidote, static bundle) -------------------------------------
+# Generate a static plugin file from plugins.txt and source that directly —
+# much faster than antidote's dynamic `load`. Regenerated only when the list
+# changes; antidote is autoloaded (cheaper than sourcing antidote.zsh).
+ANTIDOTE_FUNCS="${HOMEBREW_PREFIX:-/opt/homebrew}/share/antidote/functions"
+if [[ -d $ANTIDOTE_FUNCS ]]; then
+  fpath+=("$ANTIDOTE_FUNCS")
+  autoload -Uz antidote
+  zsh_plugins_txt="$HOME/.config/zsh/plugins.txt"
+  zsh_plugins_zsh="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/plugins.zsh"
+  if [[ ! $zsh_plugins_zsh -nt $zsh_plugins_txt ]]; then
+    mkdir -p "${zsh_plugins_zsh:h}"
+    antidote bundle <"$zsh_plugins_txt" >| "$zsh_plugins_zsh"
+  fi
+  source "$zsh_plugins_zsh"
+  unset zsh_plugins_txt zsh_plugins_zsh
+fi
+
+# --- prompt (starship) -----------------------------------------------------
+# Config: ~/.config/starship.toml. For historical reference, the previous
+# oh-my-zsh robbyrussell theme was:
+#   PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+#   PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+#   ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+#   ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+#   ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
+#   ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+_cache_eval starship starship init zsh
+
+# --- help ------------------------------------------------------------------
+unalias run-help 2>/dev/null
+autoload -Uz run-help
+[[ -n ${HOMEBREW_PREFIX:-} ]] && HELPDIR="$HOMEBREW_PREFIX/share/zsh/help"
+
+# --- keybindings -----------------------------------------------------------
+bindkey "\e\e[D" backward-word     # Option-Left  → previous word
+bindkey "\e\e[C" forward-word      # Option-Right → next word
+
+# --- per-tool / vendor snippets -------------------------------------------
+# Each file owns one tool (mise, atuin, 1password, sentry, docker, claude) plus
+# personal aliases. (N) avoids an error when the glob matches nothing.
+for _f in "$HOME"/.config/zsh/conf.d/*.zsh(N); do
+  source "$_f"
+done
+unset _f

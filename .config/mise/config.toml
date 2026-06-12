@@ -1,0 +1,16 @@
+# mise configuration (replaces ~/.asdfrc). Tool versions live in .tool-versions
+# files, as with asdf.
+
+[settings]
+# Also read idiomatic version files (.ruby-version, .node-version, .nvmrc,
+# .python-version), matching asdf's `legacy_version_file = yes`. Newer mise
+# gates these per-tool, so enable the runtimes we use.
+idiomatic_version_file_enable_tools = ["ruby", "node", "python"]
+
+# Don't report anonymous install stats to mise-versions.jdx.dev (keeps the
+# shared version cache via use_versions_host, just no usage tracking).
+use_versions_host_track = false
+
+[settings.ruby]
+# Use precompiled ruby binaries (jdx/ruby) instead of building from source.
+compile = false
