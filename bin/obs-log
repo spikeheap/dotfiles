@@ -1,0 +1,108 @@
+#!/bin/sh
+# Append a timestamped bullet to today's Goodbase daily note in Obsidian.
+# Creates the note from the Daily log template if it doesn't exist yet.
+# Usage: obs-log [shortcuts:] [@person] <text>   (obs-log -h lists the tags)
+set -eu
+
+vault="${OBS_VAULT:-$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Main Vault}"
+note="$vault/Goodbase/daily/$(date +%F).md"
+template="$vault/_templates/Daily log.md"
+
+usage() {
+  cat <<'EOF'
+usage: obs-log [shortcuts:] [@person] <text>
+
+Appends "- HH:MM <text>" to today's Goodbase daily note.
+
+Shortcuts (combine up to three, e.g. "rt: Unpinned base images"):
+  i:  #idea          r:  #risk
+  q:  #question      t:  #tech-debt
+  d:  #decision      p:  #praise
+  o:  #observation   w:  #win
+  @jo                #p/jo
+
+Tags can also go in the text. Any #tag must be one of the above,
+#praise/done, #win/done or #p/<name>, or nothing is written.
+EOF
+}
+
+# Sets $tag for a shortcut letter, or fails for an unknown one
+tag_for() {
+  case $1 in
+    i) tag=idea ;;
+    q) tag=question ;;
+    d) tag=decision ;;
+    o) tag=observation ;;
+    r) tag=risk ;;
+    t) tag=tech-debt ;;
+    p) tag=praise ;;
+    w) tag=win ;;
+    *) return 1 ;;
+  esac
+}
+
+# Appends the tags for a shortcut like "rt" to $tags, or fails without
+# touching $tags if it isn't one (so "re: the invoice" stays as text)
+expand_shortcut() {
+  letters=$1 seen="" expanded=""
+  [ ${#letters} -le 3 ] || return 1
+  while [ -n "$letters" ]; do
+    c=${letters%"${letters#?}"}
+    letters=${letters#?}
+    case $seen in *"$c"*) return 1 ;; esac
+    tag_for "$c" || return 1
+    seen="$seen$c"
+    expanded="$expanded #$tag"
+  done
+  tags="$tags$expanded"
+}
+
+case "${1:-}" in
+  ""|-h|--help) usage; [ $# -gt 0 ]; exit ;;
+esac
+
+# Alfred passes everything as one argument, so parse shortcuts from the joined text
+text="$*" tags=""
+while :; do
+  first=${text%%[[:space:]]*}
+  rest=${text#"$first"}
+  rest=${rest#"${rest%%[![:space:]]*}"}
+  case $first in
+    @|@*[!A-Za-z0-9_-]*) break ;;
+    @*) tags="$tags #p/${first#@}" ;;
+    ?*:) expand_shortcut "${first%:}" || break ;;
+    *) break ;;
+  esac
+  text=$rest
+done
+
+if [ -z "$text" ]; then
+  echo "obs-log: nothing to log" >&2
+  exit 1
+fi
+line="$text$tags"
+
+# Reject unknown tags so typos don't drop out of the weekly review queries
+unknown=$(printf ' %s\n' "$line" | grep -oE '[[:space:]]#[A-Za-z][A-Za-z0-9_/-]*' | sed 's/^[[:space:]]*//' |
+  grep -vxE '#(idea|question|decision|observation|risk|tech-debt|praise|win|praise/done|win/done|p/[A-Za-z0-9_-]+)' || true)
+if [ -n "$unknown" ]; then
+  echo "obs-log: unknown tag $(echo $unknown) (obs-log -h lists them)" >&2
+  exit 1
+fi
+
+if [ ! -f "$note" ]; then
+  mkdir -p "$(dirname "$note")"
+  cp "$template" "$note"
+fi
+
+# The template ends with an empty "- " bullet: replace it rather than leave it dangling
+if tail -n 1 "$note" | grep -qx -- '- *'; then
+  sed -i '' '$d' "$note"
+fi
+
+# Make sure we start on a fresh line
+if [ -n "$(tail -c 1 "$note")" ]; then
+  echo >> "$note"
+fi
+
+printf -- '- %s %s\n' "$(date +%H:%M)" "$line" >> "$note"
