@@ -52,3 +52,7 @@
 [includeIf "hasconfig:remote.*.url:git@github.com:goodbasehq/**"]
   path = ~/src/dotfiles/git/config-github-goodbase
 
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials
+[rebase]
+	updateRefs = true
