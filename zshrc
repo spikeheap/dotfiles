@@ -73,7 +73,7 @@ bindkey "\e\e[D" backward-word     # Option-Left  → previous word
 bindkey "\e\e[C" forward-word      # Option-Right → next word
 
 # --- per-tool / vendor snippets -------------------------------------------
-# Each file owns one tool (mise, atuin, 1password, sentry, docker, claude) plus
+# Each file owns one tool (mise, history, 1password, sentry, docker, claude) plus
 # personal aliases. (N) avoids an error when the glob matches nothing.
 for _f in "$HOME"/.config/zsh/conf.d/*.zsh(N); do
   source "$_f"

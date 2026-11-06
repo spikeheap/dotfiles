@@ -25,7 +25,7 @@ Zsh, no framework (oh-my-zsh was removed in favour of lighter, explicit pieces).
 - **Prompt**: [starship](https://starship.rs) (`.config/starship.toml`), echoing the old robbyrussell look. The original oh-my-zsh prompt is captured as a comment in `zshrc`.
 - **Plugins**: [antidote](https://antidote.sh) loads `.config/zsh/plugins.txt` — `zsh-autosuggestions`, `fast-syntax-highlighting`, and a few oh-my-zsh plugins (`git`, `dotenv`, `colored-man-pages`) pulled individually, without the framework.
 - **Runtimes**: [mise](https://mise.jdx.dev) (`.config/mise/config.toml`), reading `.tool-versions`. Replaced asdf; ruby/node/python install as precompiled binaries (`ruby.compile = false`).
-- **History**: [atuin](https://atuin.sh), with the up-arrow binding left on muscle memory.
+- **History**: plain zsh history (`.config/zsh/conf.d/history.zsh`) searched with [fzf](https://github.com/junegunn/fzf) on Ctrl-R.
 - **File roles**: `zshenv` is env/PATH only (runs for every shell, including scripts); `zprofile` is login-only (brew, OrbStack); `zshrc` is interactive config and sources per-tool snippets from `.config/zsh/conf.d/*.zsh`. A single `compinit` runs, daily-cached.
 
 The starship prompt needs a Nerd Font (FiraCode, installed via the Brewfile) selected in the terminal.

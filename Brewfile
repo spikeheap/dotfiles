@@ -39,8 +39,8 @@ brew "awscli"
 # Containers / Linux on macOS
 cask "orbstack"
 
-# Shell history sync
-brew "atuin"
+# Shell history search (Ctrl-R, Ctrl-T, Alt-C)
+brew "fzf"
 
 # 1Password (app + CLI; CLI powers SSH agent + Git signing)
 cask "1password"
