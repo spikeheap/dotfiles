@@ -5,7 +5,7 @@ export default {
 
   hideIcon: true,
   keepRunning: true,
-  
+
   rewrite: [
     // Force https for all urls
     // https://github.com/johnste/finicky/wiki/Configuration-ideas#force-https-for-all-urls
@@ -17,7 +17,7 @@ export default {
     // },
 
     // Remove all marketing/tracking information from urls
-    // https://github.com/johnste/finicky/wiki/Configuration-ideas#remove-all-marketingtracking-information-from-urls  
+    // https://github.com/johnste/finicky/wiki/Configuration-ideas#remove-all-marketingtracking-information-from-urls
     {
       match: () => true, // Execute rewrite on all incoming urls to make this example easier to understand
       url({ url }) {
@@ -48,7 +48,7 @@ export default {
     //     "dashboard.gitguardian.com/*",
     //     "*.atlassian.com/*",
     //     "*.atlassian.net/*",
-        
+
     //     // Client domains
     //     "*.hackney.gov.uk/*", // while they're a client
     //   ],
@@ -71,18 +71,21 @@ export default {
 
     // Open Zoom invites in Zoom app
     // https://github.com/johnste/finicky/wiki/Configuration-ideas#open-zoom-links-in-zoom-app-with-or-without-password
-    {
-      match: /zoom\.us\/join/,
-      browser: "us.zoom.xos"
-    },
+    // {
+    //   match: [
+    //     /zoom\.us\/join/,
+    //     /us02web\.zoom\.us\/j/
+    //   ],
+    //   browser: "us.zoom.xos"
+    // },
 
     // Open Microsoft Teams links in the native app
     // https://github.com/johnste/finicky/wiki/Configuration-ideas#open-microsoft-teams-links-in-the-native-app
-    {
-      match: finicky.matchHostnames(['teams.microsoft.com']),
-      browser: 'com.microsoft.teams',
-      url: ({url}) =>
-          ({...url, protocol: 'msteams'}),
-    }
+    // {
+    //   match: finicky.matchHostnames(['teams.microsoft.com']),
+    //   browser: 'com.microsoft.teams',
+    //   url: ({url}) =>
+    //       ({...url, protocol: 'msteams'}),
+    // }
   ]
 };
