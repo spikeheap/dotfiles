@@ -41,3 +41,6 @@ vendor
 .env
 *.env
 **/.claude/settings.local.json
+
+# Per-developer mise config (e.g. adding a project bin/ to PATH)
+mise.local.toml

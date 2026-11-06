@@ -2,8 +2,10 @@
 # scripts. Keep this to environment variables and PATH only: no aliases,
 # functions, setopt, or interactive config (those belong in ~/.zshrc).
 
-# PATH: project-local bin, then personal dotfiles bin, then the rest.
-export PATH="./bin:$HOME/src/dotfiles/bin:$PATH"
+# PATH: personal dotfiles bin, then the rest. Project bin/ dirs are added per
+# project by mise (mise.local.toml with `_.path = ["bin"]`, then `mise trust`),
+# so an untrusted repo can't shadow commands like git or ls.
+export PATH="$HOME/src/dotfiles/bin:$PATH"
 
 # Editors
 export EDITOR='subl'
