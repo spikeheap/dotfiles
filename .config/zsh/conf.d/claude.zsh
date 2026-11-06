@@ -17,6 +17,3 @@ claude() {
     _term_tint
   }
 }
-
-# Open a zsh shell inside a devcontainer (defaults to the current directory).
-dcsh() { devcontainer exec --workspace-folder "${1:-.}" zsh; }
