@@ -23,15 +23,15 @@
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AiMaxTokens</key>
-	<integer>400000</integer>
+	<integer>1050000</integer>
 	<key>AiModel</key>
-	<string>gpt-5.2</string>
+	<string>gpt-5.5</string>
 	<key>AiResponseMaxTokens</key>
 	<integer>128000</integer>
 	<key>AitermURL</key>
 	<string>https://api.openai.com/v1/responses</string>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
 	<key>AnimateDimming</key>
@@ -42,6 +42,33 @@
 	<false/>
 	<key>ClosingHotkeySwitchesSpaces</key>
 	<true/>
+	<key>CodeReviewSavedPrompts</key>
+	<data>
+	W3sidXVpZCI6IkQxRjAyRUNBLTgwQTMtNEQ5NC04NEUwLTNEMzlEMDY0NDdBNSIsInRl
+	eHQiOiJSZXZpZXcgdGhlIHBlbmRpbmcgY2hhbmdlcyBpbiB0aGlzIHJlcG8uIEZsYWcg
+	aXNzdWVzIGEgY2FyZWZ1bCBtYWludGFpbmVyIHdvdWxkIGJsb2NrIG9uIGJlZm9yZSBt
+	ZXJnZSwgaW4gcm91Z2hseSB0aGlzIG9yZGVyOlxuICAxLiBDb3JyZWN0bmVzcyDigJQg
+	bG9naWMgZXJyb3JzLCBicm9rZW4gaW52YXJpYW50cywgbWlzc2VkIGVkZ2UgY2FzZXMs
+	IG9mZi1ieS1vbmUsIHJhY2VzLCBsaWZldGltZVwvbWVtb3J5IGJ1Z3MsIGVycm9yIHBh
+	dGhzIHRoYXQgc3dhbGxvdyBmYWlsdXJlcy5cbiAgMi4gU2VjdXJpdHkg4oCUIGluamVj
+	dGlvbiwgYXV0aG5cL2F1dGh6IG1pc3Rha2VzLCBzZWNyZXQgaGFuZGxpbmcsIHVuc2Fm
+	ZSBkZXNlcmlhbGl6YXRpb24sIHVuc2FmZSBkZWZhdWx0cywgVE9DVE9VLlxuICAzLiBS
+	ZWxpYWJpbGl0eSAmIHBlcmZvcm1hbmNlIOKAlCBibG9ja2luZyB0aGUgd3JvbmcgdGhy
+	ZWFkLCB1bmJvdW5kZWQgcmVzb3VyY2UgdXNlLCBhY2NpZGVudGFsIE8oTsKyKSwgcmV0
+	cmllcyB3aXRob3V0IGJhY2tvZmYsIHNpbGVudCBmYWlsdXJlIHBhdGhzLlxuICA0LiBD
+	b250cmFjdCByaXNrIOKAlCBiZWhhdmlvciBjaGFuZ2VzIGNhbGxlcnMgcmVseSBvbiwg
+	c2lsZW50bHkgY2hhbmdlZCBkZWZhdWx0cywgYnJva2VuIGJhY2t3YXJkIGNvbXBhdGli
+	aWxpdHksIG1pc3NpbmcgbWlncmF0aW9ucy5cblxuRm9yIGVhY2ggZmluZGluZyBjaXRl
+	IGBmaWxlOmxpbmVgLCBleHBsYWluICp3aHkqIGl0IGlzIHdyb25nIChub3Qgd2hhdCB0
+	aGUgY29kZSBkb2VzKSwgYW5kIHByb3Bvc2UgYSBjb25jcmV0ZSBmaXggd2hlbiBvbmUg
+	aXMgb2J2aW91cy4gQmUgY2FsaWJyYXRlZDogaWYgYSBmaW5kaW5nIGlzIG5vdCBoaWdo
+	LWNvbmZpZGVuY2UsIHNheSBzbyBvciBza2lwIGl0LiBWZXJpZnkgY2xhaW1zIGFnYWlu
+	c3QgdGhlIGFjdHVhbCBjb2RlIHJhdGhlciB0aGFuIGluZmVycmluZyBmcm9tIG5hbWVz
+	LlxuXG5Ta2lwIHB1cmUgc3R5bGUsIGZvcm1hdHRpbmcsIG5hbWluZywgYW5kIGFueXRo
+	aW5nIGEgbGludGVyIG9yIENJIGFscmVhZHkgZW5mb3JjZXMuXG5cbklmIHlvdSBmaW5k
+	IG5vdGhpbmcgd29ydGggZml4aW5nLCBzYXkgc28gcGxhaW5seS4iLCJuYW1lIjoiRGVm
+	YXVsdCJ9XQ==
+	</data>
 	<key>CommandSelection</key>
 	<true/>
 	<key>Control</key>
@@ -1113,6 +1140,8 @@
 	<false/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
+	<key>EnableAPIServer</key>
+	<true/>
 	<key>EnableRendezvous</key>
 	<false/>
 	<key>FocusFollowsMouse</key>
@@ -1789,7 +1818,52 @@
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
-			<array/>
+			<array>
+				<dict>
+					<key>action</key>
+					<string>iTermEnterWorkgroupTrigger</string>
+					<key>contentregex</key>
+					<string></string>
+					<key>disabled</key>
+					<false/>
+					<key>eventParams</key>
+					<dict>
+						<key>jobName</key>
+						<string>claude</string>
+					</dict>
+					<key>matchType</key>
+					<integer>113</integer>
+					<key>parameter</key>
+					<string>builtin.claudeCode</string>
+					<key>partial</key>
+					<false/>
+					<key>regex</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>iTermExitWorkgroupTrigger</string>
+					<key>contentregex</key>
+					<string></string>
+					<key>disabled</key>
+					<false/>
+					<key>eventParams</key>
+					<dict>
+						<key>jobName</key>
+						<string>claude</string>
+						<key>leaderOnly</key>
+						<true/>
+					</dict>
+					<key>matchType</key>
+					<integer>114</integer>
+					<key>parameter</key>
+					<string></string>
+					<key>partial</key>
+					<false/>
+					<key>regex</key>
+					<string></string>
+				</dict>
+			</array>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -2312,7 +2386,52 @@
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
-			<array/>
+			<array>
+				<dict>
+					<key>action</key>
+					<string>iTermEnterWorkgroupTrigger</string>
+					<key>contentregex</key>
+					<string></string>
+					<key>disabled</key>
+					<false/>
+					<key>eventParams</key>
+					<dict>
+						<key>jobName</key>
+						<string>claude</string>
+					</dict>
+					<key>matchType</key>
+					<integer>113</integer>
+					<key>parameter</key>
+					<string>builtin.claudeCode</string>
+					<key>partial</key>
+					<false/>
+					<key>regex</key>
+					<string></string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>iTermExitWorkgroupTrigger</string>
+					<key>contentregex</key>
+					<string></string>
+					<key>disabled</key>
+					<false/>
+					<key>eventParams</key>
+					<dict>
+						<key>jobName</key>
+						<string>claude</string>
+						<key>leaderOnly</key>
+						<true/>
+					</dict>
+					<key>matchType</key>
+					<integer>114</integer>
+					<key>parameter</key>
+					<string></string>
+					<key>partial</key>
+					<false/>
+					<key>regex</key>
+					<string></string>
+				</dict>
+			</array>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -3040,10 +3159,12 @@
 	<integer>3</integer>
 	<key>SavePasteHistory</key>
 	<false/>
+	<key>Selection Respects Soft Boundaries</key>
+	<true/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowMetalFPSmeter</key>
 	<false/>
 	<key>ShowPaneTitles</key>
@@ -3068,6 +3189,10 @@
 	<false/>
 	<key>TmuxDashboardLimit</key>
 	<integer>10</integer>
+	<key>ToolbeltTools</key>
+	<array>
+		<string>Session Status</string>
+	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>URLHandlersByGuid</key>
@@ -3086,6 +3211,36 @@
 	<integer>0</integer>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>Workgroups</key>
+	<data>
+	W3sidW5pcXVlSWRlbnRpZmllciI6ImJ1aWx0aW4uY2xhdWRlQ29kZSIsIm5hbWUiOiJD
+	bGF1ZGUgQ29kZSIsInNlc3Npb25zIjpbeyJraW5kIjp7ImtpbmQiOiJyb290In0sImNv
+	bW1hbmQiOiIiLCJtb2RlIjoicmVndWxhciIsInBlckZpbGVDb21tYW5kIjoiIiwidW5p
+	cXVlSWRlbnRpZmllciI6ImJ1aWx0aW4uY2xhdWRlQ29kZS5tYWluIiwidXJsU3RyaW5n
+	IjoiIiwidG9vbGJhckl0ZW1zIjpbeyJraW5kIjoibW9kZVN3aXRjaGVyIn0seyJraW5k
+	IjoiZ2l0U3RhdHVzIn0seyJraW5kIjoiYXV0b1JlcXVlc3RSZXZpZXdXaGVuSWRsZSJ9
+	XSwiZGlzcGxheU5hbWUiOiJDaGF0In0seyJraW5kIjp7ImtpbmQiOiJwZWVyIn0sImNv
+	bW1hbmQiOiJnaXQgZGlmZnRvb2wgLXkgLXggdmltZGlmZiBcXChnaXRCYXNlKSIsIm1v
+	ZGUiOiJkaWZmIiwicGVyRmlsZUNvbW1hbmQiOiJnaXQgZGlmZnRvb2wgLXkgLXggdmlt
+	ZGlmZiBcXChnaXRCYXNlKSAtLSBcXChmaWxlKSIsInVuaXF1ZUlkZW50aWZpZXIiOiJi
+	dWlsdGluLmNsYXVkZUNvZGUuZGlmZiIsInBhcmVudElEIjoiYnVpbHRpbi5jbGF1ZGVD
+	b2RlLm1haW4iLCJ1cmxTdHJpbmciOiIiLCJ0b29sYmFySXRlbXMiOlt7ImtpbmQiOiJt
+	b2RlU3dpdGNoZXIifSx7ImtpbmQiOiJjaGFuZ2VkRmlsZVNlbGVjdG9yIn0seyJraW5k
+	IjoiZ2l0QmFzZVNlbGVjdG9yIn0seyJiYWNrU2hvcnRjdXQiOnsic2VyaWFsaXplZCI6
+	IjB4ZjcwMi0weDM0MDAwMC0weDdiIn0sImZvcndhcmRTaG9ydGN1dCI6eyJzZXJpYWxp
+	emVkIjoiMHhmNzAzLTB4MzQwMDAwLTB4N2MifSwicmVsb2FkU2hvcnRjdXQiOnsic2Vy
+	aWFsaXplZCI6IjB4NzItMHgxMDAwMDAtMHhmIn0sImtpbmQiOiJuYXZpZ2F0aW9uIn1d
+	LCJkaXNwbGF5TmFtZSI6IkRpZmYifSx7ImtpbmQiOnsia2luZCI6InBlZXIifSwiY29t
+	bWFuZCI6ImNsYXVkZSBcXChjb2RlUmV2aWV3UHJvbXB0KSAtLWFwcGVuZC1zeXN0ZW0t
+	cHJvbXB0LWZpbGUgJ1xcKGNvZGVSZXZpZXdTeXN0ZW1Qcm9tcHRGaWxlKScgLS1zZXR0
+	aW5ncyAnXFwoY29kZVJldmlld1NldHRpbmdzRmlsZSknIiwibW9kZSI6ImNvZGVSZXZp
+	ZXciLCJwZXJGaWxlQ29tbWFuZCI6IiIsInVuaXF1ZUlkZW50aWZpZXIiOiJidWlsdGlu
+	LmNsYXVkZUNvZGUucmV2aWV3IiwicGFyZW50SUQiOiJidWlsdGluLmNsYXVkZUNvZGUu
+	bWFpbiIsInVybFN0cmluZyI6IiIsInRvb2xiYXJJdGVtcyI6W3sia2luZCI6Im1vZGVT
+	d2l0Y2hlciJ9LHsic2hvcnRjdXQiOnsic2VyaWFsaXplZCI6IjB4NzItMHgxMDAwMDAt
+	MHhmIn0sImtpbmQiOiJyZWxvYWQifSx7ImtpbmQiOiJhdXRvU2VuZENsaXBwaW5nc1do
+	ZW5JZGxlIn1dLCJkaXNwbGF5TmFtZSI6IkNvZGUgUmV2aWV3In1dfV0=
+	</data>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findMode_iTerm</key>
