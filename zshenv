@@ -25,3 +25,7 @@ export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 export HOMEBREW_NO_ANALYTICS=1                  # Homebrew InfluxDB analytics
 export CHECKPOINT_DISABLE=1                     # HashiCorp (Terraform/Terragrunt/Packer) + Prisma
 export SAM_CLI_TELEMETRY=0                      # AWS SAM CLI telemetry
+
+# Prevent Terraform & Terragrunt from filling up disk with provider copies
+export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
+export TG_PROVIDER_CACHE=1
