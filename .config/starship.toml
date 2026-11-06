@@ -6,16 +6,23 @@
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = true
+# Prompts are separated by a horizontal rule (the fill below) instead of a
+# blank line. Git context sits at the start of the rule when there is any.
+add_newline = false
 palette = "catppuccin_mocha"
 
-format = "$directory$git_branch$git_state$git_status$git_metrics$cmd_duration$line_break$character"
+format = "($git_branch$git_state$git_status$git_metrics$cmd_duration)$fill\n$directory$character"
 right_format = "$nodejs$ruby$python"
 
-# robbyrussell's arrow, now on its own line: green on success, red on failure.
+[fill]
+symbol = "─"
+style = "surface1"
+
+# robbyrussell's arrow on its own line, green on success. Failure swaps the shape
+# to a red cross so it doesn't rely on colour alone.
 [character]
 success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
+error_symbol = "[✘](bold red)"
 
 [directory]
 style = "blue"
