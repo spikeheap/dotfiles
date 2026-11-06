@@ -79,3 +79,11 @@ for _f in "$HOME"/.config/zsh/conf.d/*.zsh(N); do
   source "$_f"
 done
 unset _f
+
+claude-nono() {
+  GITHUB_TOKEN="$(op read 'op://Private/GitHub agent token/credential')" \
+    nono run --profile ruby-dev-gb -- claude "$@"
+}
+
+# Allow hash comments in interactive shells (e.g. for pasted snippets)
+setopt interactive_comments
