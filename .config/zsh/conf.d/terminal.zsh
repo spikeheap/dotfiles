@@ -29,20 +29,15 @@ add-zsh-hook precmd _term_title_precmd
 add-zsh-hook preexec _term_title_preexec
 
 # --- background tint ---------------------------------------------------------
-# Subtle background tint for this tab while Claude runs (orange) or while inside
-# a production Terraform directory (red). Claude wins if both apply. Colours
-# are the Catppuccin background mixed with the tint, picked to match whichever
-# theme the Ghostty config uses.
+# Red background tint for this tab while inside a production Terraform
+# directory. The colour is the Catppuccin background mixed with red, picked to
+# match whichever theme the Ghostty config uses.
 _TERM_GHOSTTY_CONFIG="$HOME/.config/ghostty/config.ghostty"
 typeset -g _TERM_TINT=
 
 _term_tint() {
   local want=
-  if (( ${+_CLAUDE_RUNNING} )); then
-    want=claude
-  elif _term_in_prod; then
-    want=prod
-  fi
+  _term_in_prod && want=prod
   [[ $want == $_TERM_TINT ]] && return
   _TERM_TINT=$want
 
@@ -51,13 +46,9 @@ _term_tint() {
     return
   fi
 
-  local -A colours
-  if [[ -n ${(M)${(f)"$(<$_TERM_GHOSTTY_CONFIG)"}:#theme = *Latte*} ]]; then
-    colours=(claude '#f1e5d8' prod '#eab7cb')
-  else
-    colours=(claude '#392b28' prod '#6c2546')
-  fi
-  print -n "\e]11;${colours[$want]}\a"
+  local colour='#6c2546'
+  [[ -n ${(M)${(f)"$(<$_TERM_GHOSTTY_CONFIG)"}:#theme = *Latte*} ]] && colour='#eab7cb'
+  print -n "\e]11;$colour\a"
 }
 
 add-zsh-hook precmd _term_tint
